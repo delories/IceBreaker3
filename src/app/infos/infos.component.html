@@ -1,0 +1,64 @@
+<!--分页组件参数：pageSize,totalNum,curPage,totalPage-->
+<app-search></app-search>
+ 
+    <div class="container-float" style="background-color:#F2F2F2;">
+        <div class="row">
+            <div class="col-12 col-sm-1 col-md-1 col-lg-1"></div>
+            <div class="col-12 col-sm-10 col-md-10 col-lg-10 center">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="panel" style="z-index:1;margin:5px 0px 0px 0px;">
+                    <div class="panel-body">
+                        <div class="well">
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                <h4>为您找到相关公司<span style="color:#FF4000">&nbsp;{{infosNum.length}}&nbsp; </span>家</h4>
+                            </div> 
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-6" style="padding:0;margin:0">
+                                <div class="dropdown" align="right">
+                                    <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" style="padding:2px 5px 2px 5px;margin:0;background-color:#fafafa">默认排序
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu1">
+                                        <li role="presentation">
+                                            <a role="menuitem" tabindex="-1" href="#">默认排序</a>
+                                        </li>
+                                        <li role="presentation">
+                                            <a role="menuitem" tabindex="-1" href="#">按注册资本降序</a>
+                                        </li>
+                                        <li role="presentation">
+                                            <a role="menuitem" tabindex="-1" href="#">按注册资本升序</a>
+                                        </li>
+                                        <li role="presentation">
+                                            <a role="menuitem" tabindex="-1" href="#">按注册时间降序</a>
+                                        </li>
+                                        <li role="presentation">
+                                            <a role="menuitem" tabindex="-1" href="#">按注册时间升序</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                        
+                            
+                        </div>
+
+<app-pages [key]='[this.key]' [pageSize]="3" [totalNum]='[infosNum.length]' [curPage]='[curPage]' [totalPage]='[countPages(infosNum.length,pageSize)]'  (changeCurPage)="getPageData($event)"></app-pages>
+
+<div *ngIf="this.infosNum.length==null||this.infosNum.length==0">
+	
+		
+			<div class="col-12 col-sm-1 col-md-1 col-lg-1"></div>
+                                 <h4>404 NotFound</h4>
+                             
+                    </div>
+         
+            
+        </div>
+        <div class="col-12 col-sm-1 col-md-1 col-lg-1">
+        </div>
+
+
