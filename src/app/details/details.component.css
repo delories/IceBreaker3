@@ -1,35 +1,44 @@
 label {
-        font-weight: normal;
-        padding: 0px 5px 0px 0px;
-        display: inline-block;
-    }
+  font-weight: normal;
+  padding: 0px 5px 0px 0px;
+  display: inline-block;
+}
 
-    table {
-        font-size: 0.985em;
-        border: none;
-    }
+table {
+  font-size: 0.985em;
+  border: none;
+}
 
-    .noteLabel {
-        border: solid;
-        border-color: #58D68D;
-        padding: 0px 7px 0px 7px;
+.noteLabel {
+  border: solid;
+  border-color: #58D68D;
+  padding: 0px 7px 0px 7px;
 
-    }
-    ul.nav>li {
-        padding: 0px;
-    }
+}
 
-    .bold {
-        font-weight: bold;
-    }
+ul.nav > li {
+  padding: 0px;
+}
 
-    h4 {
-        display: inline-block;
-    }
+.bold {
+  font-weight: bold;
+}
 
-    p {
-        display: inline-block;
-        padding: 0;
-        margin: 4px 40px 4px 4px;
-    }
-    img{max-width:75%;max-height:75%}
+h4 {
+  display: inline-block;
+}
+
+p {
+  display: inline-block;
+  padding: 0;
+  margin: 4px 40px 4px 4px;
+}
+
+img {
+  max-width: 75%;
+  max-height: 75%
+}
+
+.demo-chart {
+  height: 400px;
+}

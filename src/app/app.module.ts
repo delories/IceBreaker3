@@ -15,6 +15,13 @@ import { PagesComponent } from './pages/pages.component';
 import { InfoService } from './shared/info.service';
 import { DetailService } from './shared/detail.service';
 
+import {NgxEchartsModule} from 'ngx-echarts';
+import { InvestmentComponent } from './investment/investment.component';
+import { OwnershipComponent } from './ownership/ownership.component';
+import { EnterpriseComponent } from './enterprise/enterprise.component';
+import { RelationshipComponent } from './relationship/relationship.component';
+
+
 
 @NgModule({
   declarations: [
@@ -24,12 +31,17 @@ import { DetailService } from './shared/detail.service';
     HomeComponent,
     SearchComponent,
     PagesComponent,
+    InvestmentComponent,
+    OwnershipComponent,
+    EnterpriseComponent,
+    RelationshipComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpModule,
+    NgxEchartsModule
   ],
   providers: [InfoService,
   DetailService],
