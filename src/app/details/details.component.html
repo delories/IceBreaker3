@@ -1,308 +1,327 @@
 
 <body ng-app="companyDetails">
-	<app-search></app-search>
-	<br>
-	<br>
-	<br>
-	<br>
-    <div>
-        <div class="container-float">
+<app-search></app-search>
+<br>
+<br>
+<br>
+<br>
+<div>
+  <div class="container-float">
+    <div class="row">
+      <div class="col-12 col-sm-1 col-md-1 col lg-1"></div>
+      <div class="col-12 col-sm-10 col-md-10 col-lg-10">
+        <div class="panel panel-default" style="z-index:1;margin:15px 0px 0px 0px;">
+          <div class="panel-body" style="margin:5px 0px 5px 0px">
+            <div class="row well" style="margin:5px 0px 5px 0px;">
+              <div class="col-12 col-sm-3 col-md-3 col-lg-3">
+                <img alt="Trolltunga Norway" [src]='company[0].Logo'>
+              </div>
+              <div class="col-12 col-sm-9 col-md-9 col-lg-9">
+                <h4 name="companyName">{{company[0].Name}}</h4>
+                <label for="" style="position: relative;left: 30px;" class="noteLabel" name="companyState">{{company[0].State}}</label>
+                <br>
+                <div class="row">
+                  <div class="col-12 col-xs-6 col-md-6 col-lg-6">
+                    <label for="">电话：</label>
+                    <p name="phoneNumber">{{company[0].Phone}}</p>
+                  </div>
+                  <div class="col-12 col-xs-6 col-md-6 col-lg-6">
+                    <label for="">官网：</label>
+                    <p name="website">{{company[0].Website}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 col-xs-6 col-md-6 col-lg-6">
+                    <label for="">地址：</label>
+                    <p name="location" ng-mouseover="showTheWholeInfo(place,$event);">
+                      {{company[0].Place}}
+                      <a href="#" title="" data-toggle="tooltip" data-placement="bottom" id="tips"
+                         style="z-index:1"></a>
+                    </p>
+                  </div>
+                  <div class="col-12 col-xs-6 col-md-6 col-lg-6">
+                    <label for="">邮箱：</label>
+                    <p name="email">{{company[0].Email}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--<div class="panel-footer"></div><-->
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
             <div class="row">
-                <div class="col-12 col-sm-1 col-md-1 col lg-1"></div>
-                <div class="col-12 col-sm-10 col-md-10 col-lg-10">
-                    <div class="panel panel-default" style="z-index:1;margin:15px 0px 0px 0px;">
-                        <div class="panel-body" style="margin:5px 0px 5px 0px">
-                            <div class="row well" style="margin:5px 0px 5px 0px;">
-                                <div class="col-12 col-sm-3 col-md-3 col-lg-3">
-                                    <img alt="Trolltunga Norway" [src]='company[0].Logo'>
-                                </div>
-                                <div class="col-12 col-sm-9 col-md-9 col-lg-9">
-                                    <h4 name="companyName">{{company[0].Name}}</h4>
-                                    <label for="" style="position: relative;left: 30px;" class="noteLabel" name="companyState">{{company[0].State}}</label>
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-12 col-xs-6 col-md-6 col-lg-6">
-                                            <label for="">电话：</label>
-                                            <p name="phoneNumber">{{company[0].Phone}}</p>
-                                        </div>
-                                        <div class="col-12 col-xs-6 col-md-6 col-lg-6">
-                                            <label for="">官网：</label>
-                                            <p name="website">{{company[0].Website}}</p>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12 col-xs-6 col-md-6 col-lg-6">
-                                            <label for="">地址：</label>
-                                            <p name="location" ng-mouseover="showTheWholeInfo(place,$event);" >
-                                                {{company[0].Place}}
-                                                <a href="#" title="" data-toggle="tooltip" data-placement="bottom" id="tips"style="z-index:1"></a>
-                                            </p>
-                                        </div>
-                                        <div class="col-12 col-xs-6 col-md-6 col-lg-6">
-                                            <label for="">邮箱：</label>
-                                            <p name="email">{{company[0].Email}}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="nav nav-tabs">
+                  <li class="active col-12 col-sm-2 col-md-2 col-lg-2 bold"><a href="#details"
+                                                                               data-toggle="tab">基本信息</a></li>
+                  <li class="disabled col-12 col-sm-2 col-md-2 col-lg-2"><a href="">关系图形：</a></li>
+                  <li class="col-12 col-sm-2 col-md-2 col-lg-2"><a href="#ownership" data-toggle="tab">股权结构</a></li>
+                  <li class="col-12 col-sm-2 col-md-2 col-lg-2"><a href="#investment" data-toggle="tab">投资族谱</a></li>
+                  <li class="col-12 col-sm-2 col-md-2 col-lg-2"><a href="#enterprise" data-toggle="tab">企业图谱</a></li>
+                  <li class="col-12 col-sm-2 col-md-2 col-lg-2"><a href="#relationship" data-toggle="tab">疑似关系</a></li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane fade in active" id="details">
+                    <table class="table table-condensed table-bordered table-striped"
+                           ng-controller="showCompanyDetails">
+                      <tbody>
+                      <tr>
+                        <td class="col-12 col-sm-3 col-md-3 col-lg-3">注册资本：</td>
+                        <td class="col-12 col-sm-3 col-md-3 col-lg-3">{{detail[0].RegisterMoney}}</td>
+                        <td class="col-12 col-sm-3 col-md-3 col-lg-3">成立日期：</td>
+                        <td class="col-12 col-sm-3 col-md-3 col-lg-3">
+                          {{detail[0].RegisterDate}}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>经营状态：</td>
+                        <td>{{detail[0].State}}</td>
+                        <td>统一社会信用代码：</td>
+                        <td>{{detail[0].UniqueSocietyID}}</td>
+                      </tr>
+                      <tr>
+                        <td>纳税人识别号：</td>
+                        <td>{{detail[0].PayPersonID}}</td>
+                        <td>注册号：</td>
+                        <td>{{detail[0].RegisterID}}</td>
+                      </tr>
+                      <tr>
+                        <td>组织机构代码：</td>
+                        <td>{{detail[0].OrganizationID}}</td>
+                        <td>公司类型：</td>
+                        <td ng-mouseover="showTheWholeInfo(companyType,$event)">{{detail[0].CompanyType}}
+                          <a title="" data-toggle="tooltip" data-placement="bottom"></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>人员规模：</td>
+                        <td>{{detail[0].Faculty}}</td>
+                        <td>营业期限：</td>
+                        <td>{{detail[0].SellTime}}</td>
+                      </tr>
+                      <tr>
+                        <td>登记机关：</td>
+                        <td>{{detail[0].RegisterOrganiztion}}</td>
+                        <td>标准日期：</td>
+                        <td>{{detail[0].ConfirmDate}}</td>
+                      </tr>
+                      <tr>
+                        <td>英文名：</td>
+                        <td>{{detail[0].EnglishName}}</td>
+                        <td>曾用名：</td>
+                        <td>{{detail[0].EverName}}</td>
+                      </tr>
+                      <tr>
+                        <td>所属地区：</td>
+                        <td>{{detail[0].Region}}</td>
+                        <td>所属行业：</td>
+                        <td>{{detail[0].Profession}}</td>
+                      </tr>
+                      <tr>
+                        <td>企业地址：</td>
+                        <td colspan="3">{{detail[0].Place}}</td>
+                      </tr>
+                      <tr height="70px">
+                        <td style=" vertical-align:middle;">经营范围：</td>
+                        <td colspan="3">{{detail[0].MainProduct}}</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <p class="bold">主要人员</p><span class="badge" id="staffNumber">4</span></div>
+                      <div class="panel-body">
+                        <div class="row">
+                          <table class="table-condensed table-bordered table-hover col-12 col-sm-6 col-md-6 col-lg-6">
+                            <tbody valign="middle">
+                            <tr>
+                              <td class="col-12 col-sm-3 col-md-3 col-lg-3">
+                                <p>董事长兼总经理</p>
+                              </td>
+                              <td class="col-12 col-sm-3 col-md-3 col-lg-3">
+                                <p>张勇</p>
+                                <a href="">
+                                  <p>他有<span id="expriseNum">32</span>家公司</p>
+                                </a>
+                              </td>
+                            </tr>
+                            </tbody>
+                          </table>
+                          <table class="table-condensed table-bordered table-hover col-12 col-sm-6 col-md-6 col-lg-6">
+                            <tbody valign="middle">
+                            <tr>
+                              <td class="col-12 col-sm-3 col-md-3 col-lg-3">
+                                <p>董事长兼总经理</p>
+                              </td>
+                              <td class="col-12 col-sm-3 col-md-3 col-lg-3">
+                                <p>张勇</p>
+                                <a href="">
+                                  <p>他有<span id="expriseNum">32</span>家公司</p>
+                                </a>
+                              </td>
+                            </tr>
+                            </tbody>
+                          </table>
+                          <table class="table-condensed table-bordered table-hover col-12 col-sm-6 col-md-6 col-lg-6">
+                            <tbody valign="middle">
+                            <tr>
+                              <td class="col-12 col-sm-3 col-md-3 col-lg-3">
+                                <p>董事长兼总经理</p>
+                              </td>
+                              <td class="col-12 col-sm-3 col-md-3 col-lg-3">
+                                <p>张勇</p>
+                                <a href="">
+                                  <p>他有<span id="expriseNum">32</span>家公司</p>
+                                </a>
+                              </td>
+                            </tr>
+                            </tbody>
+                          </table>
+                          <table class="table-condensed table-bordered table-hover col-12 col-sm-6 col-md-6 col-lg-6">
+                            <tbody valign="middle">
+                            <tr>
+                              <td class="col-12 col-sm-3 col-md-3 col-lg-3">
+                                <p>董事长兼总经理</p>
+                              </td>
+                              <td class="col-12 col-sm-3 col-md-3 col-lg-3">
+                                <p>张勇</p>
+                                <a href="">
+                                  <p>他有<span id="expriseNum">32</span>家公司</p>
+                                </a>
+                              </td>
+                            </tr>
+                            </tbody>
+                          </table>
                         </div>
-                        <!--<div class="panel-footer"></div><-->
+                      </div>
                     </div>
                     <div class="panel panel-default">
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                                    <ul class="nav nav-tabs">
-                                        <li class="active col-12 col-sm-2 col-md-2 col-lg-2 bold"><a href="#details" data-toggle="tab">基本信息</a></li>
-                                        <li class="disabled col-12 col-sm-2 col-md-2 col-lg-2"><a href="">关系图形：</a></li>
-                                        <li class="col-12 col-sm-2 col-md-2 col-lg-2"><a href="#ownership" data-toggle="tab">股权结构</a></li>
-                                        <li class="col-12 col-sm-2 col-md-2 col-lg-2"><a href="#investment" data-toggle="tab">投资族谱</a></li>
-                                        <li class="col-12 col-sm-2 col-md-2 col-lg-2"><a href="#enterprise" data-toggle="tab">企业图谱</a></li>
-                                        <li class="col-12 col-sm-2 col-md-2 col-lg-2"><a href="#relationship" data-toggle="tab">疑似关系</a></li>
-                                    </ul>
-                                    <div class="tab-content">
-                                        <div class="tab-pane fade in active" id="details">
-                                            <table class="table table-condensed table-bordered table-striped" ng-controller="showCompanyDetails">
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="col-12 col-sm-3 col-md-3 col-lg-3">注册资本：</td>
-                                                        <td class="col-12 col-sm-3 col-md-3 col-lg-3">{{detail[0].RegisterMoney}}</td>
-                                                        <td class="col-12 col-sm-3 col-md-3 col-lg-3">成立日期：</td>
-                                                        <td class="col-12 col-sm-3 col-md-3 col-lg-3">
-                                                            {{detail[0].RegisterDate}}
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>经营状态：</td>
-                                                        <td>{{detail[0].State}}</td>
-                                                        <td>统一社会信用代码：</td>
-                                                        <td>{{detail[0].UniqueSocietyID}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>纳税人识别号：</td>
-                                                        <td>{{detail[0].PayPersonID}}</td>
-                                                        <td>注册号：</td>
-                                                        <td>{{detail[0].RegisterID}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>组织机构代码：</td>
-                                                        <td>{{detail[0].OrganizationID}}</td>
-                                                        <td>公司类型：</td>
-                                                        <td ng-mouseover="showTheWholeInfo(companyType,$event)">{{detail[0].CompanyType}}
-                                                            <a title="" data-toggle="tooltip" data-placement="bottom"></a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>人员规模：</td>
-                                                        <td>{{detail[0].Faculty}}</td>
-                                                        <td>营业期限：</td>
-                                                        <td>{{detail[0].SellTime}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>登记机关：</td>
-                                                        <td>{{detail[0].RegisterOrganiztion}}</td>
-                                                        <td>标准日期：</td>
-                                                        <td>{{detail[0].ConfirmDate}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>英文名：</td>
-                                                        <td>{{detail[0].EnglishName}}</td>
-                                                        <td>曾用名：</td>
-                                                        <td>{{detail[0].EverName}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>所属地区：</td>
-                                                        <td>{{detail[0].Region}}</td>
-                                                        <td>所属行业：</td>
-                                                        <td>{{detail[0].Profession}}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>企业地址：</td>
-                                                        <td colspan="3">{{detail[0].Place}}</td>
-                                                    </tr>
-                                                    <tr height="70px">
-                                                        <td style=" vertical-align:middle;">经营范围：</td>
-                                                        <td colspan="3">{{detail[0].MainProduct}}</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <div class="panel panel-default">
-                                                <div class="panel-heading">
-                                                    <p class="bold">主要人员</p><span class="badge" id="staffNumber">4</span></div>
-                                                <div class="panel-body">
-                                                    <div class="row">
-                                                        <table class="table-condensed table-bordered table-hover col-12 col-sm-6 col-md-6 col-lg-6">
-                                                            <tbody valign="middle">
-                                                                <tr>
-                                                                    <td class="col-12 col-sm-3 col-md-3 col-lg-3">
-                                                                        <p>董事长兼总经理</p>
-                                                                    </td>
-                                                                    <td class="col-12 col-sm-3 col-md-3 col-lg-3">
-                                                                        <p>张勇</p>
-                                                                        <a href="">
-                                                                            <p>他有<span id="expriseNum">32</span>家公司</p>
-                                                                        </a>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                        <table class="table-condensed table-bordered table-hover col-12 col-sm-6 col-md-6 col-lg-6">
-                                                            <tbody valign="middle">
-                                                                <tr>
-                                                                    <td class="col-12 col-sm-3 col-md-3 col-lg-3">
-                                                                        <p>董事长兼总经理</p>
-                                                                    </td>
-                                                                    <td class="col-12 col-sm-3 col-md-3 col-lg-3">
-                                                                        <p>张勇</p>
-                                                                        <a href="">
-                                                                            <p>他有<span id="expriseNum">32</span>家公司</p>
-                                                                        </a>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                        <table class="table-condensed table-bordered table-hover col-12 col-sm-6 col-md-6 col-lg-6">
-                                                            <tbody valign="middle">
-                                                                <tr>
-                                                                    <td class="col-12 col-sm-3 col-md-3 col-lg-3">
-                                                                        <p>董事长兼总经理</p>
-                                                                    </td>
-                                                                    <td class="col-12 col-sm-3 col-md-3 col-lg-3">
-                                                                        <p>张勇</p>
-                                                                        <a href="">
-                                                                            <p>他有<span id="expriseNum">32</span>家公司</p>
-                                                                        </a>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                        <table class="table-condensed table-bordered table-hover col-12 col-sm-6 col-md-6 col-lg-6">
-                                                            <tbody valign="middle">
-                                                                <tr>
-                                                                    <td class="col-12 col-sm-3 col-md-3 col-lg-3">
-                                                                        <p>董事长兼总经理</p>
-                                                                    </td>
-                                                                    <td class="col-12 col-sm-3 col-md-3 col-lg-3">
-                                                                        <p>张勇</p>
-                                                                        <a href="">
-                                                                            <p>他有<span id="expriseNum">32</span>家公司</p>
-                                                                        </a>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="panel panel-default">
-                                                <div class="panel-heading">
-                                                    <p class="bold">股东信息</p><span class="badge" id="shareholderNumber">1</span></div>
-                                                <div class="panel-body row">
-                                                    <table class="table-condensed table-bordered table-hover col-12 col-sm-12 col-md-12 col-lg-12">
-                                                        <thead>
-                                                            <tr>
-                                                                <td class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                                    <p>股东</p>
-                                                                </td>
-                                                                <td class="col-12 col-sm-2 col-md-2 col-lg-2">
-                                                                    <p>出资比例</p>
-                                                                </td>
-                                                                <td class="col-12 col-sm-4 col-md-4 col-lg-4">
-                                                                    <p>认缴出资</p>
-                                                                </td>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td><a href=""><a href=""><p>淘宝中国控股有限公司</p></a></a>
-                                                                </td>
-                                                                <td>
-                                                                    <p>100%</p>
-                                                                </td>
-                                                                <td>
-                                                                    <p>500.000000万美元</p>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                            <div class="panel panel-default">
-                                                <div class="panel-heading">
-                                                    <p class="bold">对外投资</p><span class="badge" id="shareholderNumber">3</span></div>
-                                                <!--做出分页效果，每一页显示10个左右-->
-                                                <div class="panel-body row">
-                                                    <table class="col-12 col-sm-12 col-md-12 col-lg-12 table-hover table-condensed table-bordered table-hover investment">
-                                                        <thead>
-                                                            <tr>
-                                                                <td>被投资公司名称</td>
-                                                                <td>被投资法定代表人</td>
-                                                                <td>注册资本</td>
-                                                                <td>投资数额</td>
-                                                                <td>投资占比</td>
-                                                                <td>注册时间</td>
-                                                                <td>状态</td>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td><a href="">阿里云计算（张北）有限公司</a></td>
-                                                                <td><a href="">
-                                                                    胡晓明
-                                                                </a></td>
-                                                                <td>8000.000000万人民币</td>
-                                                                <td>8000万元人民币</td>
-                                                                <td>100%</td>
-                                                                <td>2016-09-18</td>
-                                                                <td>续存（在营，开业，在册）</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td><a href="">贵州阿里云计算有限公司</a></td>
-                                                                <td><a href="">胡晓明</a></td>
-                                                                <td>1000万元</td>
-                                                                <td>1000万元人民币</td>
-                                                                <td>100%</td>
-                                                                <td>2016-09-18</td>
-                                                                <td>续存（在营，开业，在册）</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td><a href="">阿里巴巴（北京）软件服务有限公司</a></td>
-                                                                <td><a href="">黎直前</a></td>
-                                                                <td>1000万元人民币</td>
-                                                                <td>1000万元人民币</td>
-                                                                <td>100%</td>
-                                                                <td>2015-07-30</td>
-                                                                <td>开业</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane fade" id="ownership">
-                                            股权结构显示区
-                                        </div>
-                                        <div class="tab-pane fade" id="investment">
-                                            投资族谱显示区
-                                        </div>
-                                        <div class="tab-pane fade" id="enterprise">
-                                            企业图谱显示区
-                                        </div>
-                                        <div class="tab-pane fade" id="relationship">
-                                            疑似关系显示区
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                      <div class="panel-heading">
+                        <p class="bold">股东信息</p><span class="badge" id="shareholderNumber">1</span></div>
+                      <div class="panel-body row">
+                        <table class="table-condensed table-bordered table-hover col-12 col-sm-12 col-md-12 col-lg-12">
+                          <thead>
+                          <tr>
+                            <td class="col-12 col-sm-6 col-md-6 col-lg-6">
+                              <p>股东</p>
+                            </td>
+                            <td class="col-12 col-sm-2 col-md-2 col-lg-2">
+                              <p>出资比例</p>
+                            </td>
+                            <td class="col-12 col-sm-4 col-md-4 col-lg-4">
+                              <p>认缴出资</p>
+                            </td>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td><a href=""><a href=""><p>淘宝中国控股有限公司</p></a></a>
+                            </td>
+                            <td>
+                              <p>100%</p>
+                            </td>
+                            <td>
+                              <p>500.000000万美元</p>
+                            </td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <p class="bold">对外投资</p><span class="badge" id="shareholderNumber">3</span></div>
+                      <!--做出分页效果，每一页显示10个左右-->
+                      <div class="panel-body row">
+                        <table
+                          class="col-12 col-sm-12 col-md-12 col-lg-12 table-hover table-condensed table-bordered table-hover investment">
+                          <thead>
+                          <tr>
+                            <td>被投资公司名称</td>
+                            <td>被投资法定代表人</td>
+                            <td>注册资本</td>
+                            <td>投资数额</td>
+                            <td>投资占比</td>
+                            <td>注册时间</td>
+                            <td>状态</td>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td><a href="">阿里云计算（张北）有限公司</a></td>
+                            <td><a href="">
+                              胡晓明
+                            </a></td>
+                            <td>8000.000000万人民币</td>
+                            <td>8000万元人民币</td>
+                            <td>100%</td>
+                            <td>2016-09-18</td>
+                            <td>续存（在营，开业，在册）</td>
+                          </tr>
+                          <tr>
+                            <td><a href="">贵州阿里云计算有限公司</a></td>
+                            <td><a href="">胡晓明</a></td>
+                            <td>1000万元</td>
+                            <td>1000万元人民币</td>
+                            <td>100%</td>
+                            <td>2016-09-18</td>
+                            <td>续存（在营，开业，在册）</td>
+                          </tr>
+                          <tr>
+                            <td><a href="">阿里巴巴（北京）软件服务有限公司</a></td>
+                            <td><a href="">黎直前</a></td>
+                            <td>1000万元人民币</td>
+                            <td>1000万元人民币</td>
+                            <td>100%</td>
+                            <td>2015-07-30</td>
+                            <td>开业</td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--<div class="tab-pane" id="ownership">-->
+                    <!--<app-ownership [id]="id"></app-ownership>-->
+                  <!--</div>-->
+                  <!--<div class="tab-pane" id="investment">-->
+                    <!--<app-investment [id]="id"></app-investment>-->
+                  <!--</div>-->
+                  <!--<div class="tab-pane" id="enterprise">-->
+                    <!--<app-enterprise></app-enterprise>-->
+                  <!--</div>-->
+                  <!--<div class="tab-pane" id="relationship">-->
+                    <!--<app-relationship></app-relationship>-->
+                  <!--</div>-->
+
+                  <div  id="ownership">
+                    <app-ownership [id]="id"></app-ownership>
+                  </div>
+                  <div  id="investment">
+                    <app-investment [id]="id"></app-investment>
+                  </div>
+                  <div  id="enterprise">
+                    <app-enterprise [id]="id"></app-enterprise>
+                  </div>
+                  <div  id="relationship">
+                    <app-relationship [id]="id"></app-relationship>
+                  </div>
                 </div>
-                <div class="col-12 col-sm-1 col-md-1 col lg-1"></div>
+              </div>
             </div>
+          </div>
         </div>
-    </div></body>
-    <script>
-    //过滤器，控制显示的字符串长度，多余字符用...替代
+      </div>
+      <div class="col-12 col-sm-1 col-md-1 col lg-1"></div>
+    </div>
+  </div>
+</div>
+</body>
+<script>
+  //过滤器，控制显示的字符串长度，多余字符用...替代
   /* app.filter('textLengthSet', function() {
         return function(value, wordwise, max, tail) {
             if (!value) return '';
@@ -319,4 +338,4 @@
             return value + (tail || ' …'); //'...'可以换成其它文字
         };
     });*/
-    </script>
+</script>
