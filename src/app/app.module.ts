@@ -41,7 +41,7 @@ import { RelationshipComponent } from './relationship/relationship.component';
     AppRoutingModule,
     FormsModule,
     HttpModule,
-NgxEchartsModule£¬ReactiveFormsModule  ],
+NgxEchartsModule,ReactiveFormsModule  ],
   providers: [InfoService,
   DetailService],
   bootstrap: [AppComponent]
