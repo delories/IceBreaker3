@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>投资族谱</title>
+    <script src="resource/js/echarts.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/lodash.js/4.17.10/lodash.js"></script>
+</head>
+<body>
+<div id="main" style="width: 1000px;height:1000px;"></div>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+//    myChart.showLoading();
+    $.get('http://115.159.39.220:3444/relations/1/firm_181e23a3c35a6fc18450f03cc13bb03b.html/3', function (data) {
+//        myChart.hideLoading();
+
+        myChart.setOption(option = {
+            tooltip: {
+                trigger: 'item',
+                triggerOn: 'mousemove'
+            },
+            series: [
+                {
+                    type: 'tree',
+
+                    data: [data],
+
+                    top: '18%',
+                    bottom: '14%',
+
+                    layout: 'radial',
+
+                    symbol: 'emptyCircle',
+
+                    symbolSize: 7,
+
+                    initialTreeDepth: 3,
+
+                    animationDurationUpdate: 750
+
+                }
+            ]
+        });
+    });
+</script>
+</body>
+</html>
