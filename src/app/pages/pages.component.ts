@@ -6,7 +6,7 @@ import { Observable,of} from 'rxjs';
 import { Info } from '../shared/info.service';
 import { PageParams } from '../shared/info.service';
 import { InfosService } from '../shared/infos.service';
-
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-pages',
@@ -22,6 +22,8 @@ export class PagesComponent implements OnInit{
   @Input('totalNum') totalNum:number;
   @Input('curPage') curPage:number;
   @Input('totalPage') totalPage:number;
+  @Input('sortKey') sortKey:string;
+  @Input('sortOrder') sortOrder:string;
 
  // 父组件向子组件传值
  @Output() changeCurPage:EventEmitter<Number> = new EventEmitter;// 子组件向父组件广播事件，触发改变当前页面的事件
@@ -85,5 +87,16 @@ constructor(private http:Http,private routeInfo: ActivatedRoute) {
   ngOnInit() {
         this.dataSource.subscribe((data)=>this.infos=data);
         
+  }
+  infosSort(infos){
+    if(this.sortKey=="RegisterMoney"){
+      return _.orderBy(infos, ['RegisterMoney'], [this.sortOrder]);
+    }
+    else if(this.sortKey=="RegisterDate"){
+      return _.orderBy(infos, ['RegisterDate'], [this.sortOrder]);
+    }
+    else{
+      return infos;
+    }
   }
 }

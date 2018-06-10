@@ -8,6 +8,7 @@ import { Observable,of} from 'rxjs';
 import { InfosService } from '../shared/infos.service';
 import { InfosNum } from '../shared/info.service';
 import { PageParams } from '../shared/info.service';
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-infos',
@@ -25,6 +26,14 @@ export class InfosComponent implements OnInit {
  public pageSize = 3;// 每页数据条数
  public totalPage :number;// 总页数
  public curPage =1;// 当前页码
+
+states = [
+    {sortKey: '',sortOrder:'', abbrev: '默认排序'},
+    {sortKey: 'RegisterMoney',sortOrder:'desc',abbrev: '按注册资本降序'},
+    {sortKey: 'RegisterMoney',sortOrder:'asc', abbrev: '按注册资本升序'},
+    {sortKey: 'RegisterDate',sortOrder:'desc' ,abbrev: '按注册时间降序'},
+    {sortKey: 'RegisterDate',sortOrder:'asc',abbrev: '按注册时间升序'},
+  ];
 
 
   public type:string;
@@ -67,6 +76,18 @@ export class InfosComponent implements OnInit {
     let pagesNum=Math.ceil(totalNum/pageSize);
     return pagesNum;
   }
-
+    form = new FormGroup({
+    state: new FormControl(this.states[0]),
+  });
+  returnSortKey(sortParams){
+    let oo=JSON.stringify(sortParams);
+    let params=JSON.parse(oo);
+    return params.state.sortKey;
+  }
+  returnSortOrder(sortParams){
+    let oo=JSON.stringify(sortParams);
+    let params=JSON.parse(oo);
+    return params.state.sortOrder;
+  }
 }
 

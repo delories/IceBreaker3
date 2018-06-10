@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule }from '@angular/http';
 import { Routes,RouterModule } from '@angular/router';
 import {Router} from '@angular/router';
@@ -30,6 +30,7 @@ import { DetailService } from './shared/detail.service';
     AppRoutingModule,
     FormsModule,
     HttpModule,
+    ReactiveFormsModule
   ],
   providers: [InfoService,
   DetailService],

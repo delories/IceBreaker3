@@ -1,22 +1,23 @@
-                        <div class="card well well-sm " *ngIf="totalPage>=1 && totalNum>0 &&(curPage*3-3)<totalNum">
+<div *ngIf="totalPage>=1 && totalNum>0 &&(curPage*3-3)<totalNum">
+                        <div class="card well well-sm " *ngFor="let info of (infosSort(infos) ? infosSort(infos).slice(curPage*3-3,curPage*3): [])">
                             <div class="card-body ">
                                 <div class="row ">
                                     <div class="col-12 col-sm-2 col-md-2 col-lg-2 ">
-                                        <img alt="loading " [src]='infos[curPage*3-3].Logo'>
+                                        <img alt="loading " [src]='info.Logo'>
                                     </div>
                                     <div class="col-12 col-sm-8 col-md-8 col-lg-8 ">
-                                        <h4><a [routerLink]="['/details',infos[curPage*3-3].ID]">{{infos[curPage*3-3].Name}}</a></h4>
-                                        <label for=" " style="position: relative;left: 30px; " class="noteLabel ">{{infos[curPage*3-3].State}}</label>
+                                        <h4><a [routerLink]="['/details',info.ID]">{{info.Name}}</a></h4>
+                                        <label for=" " style="position: relative;left: 30px; " class="noteLabel ">{{info.State}}</label>
                                         <br>
                                         <label for=" ">法定代表人：</label>
-                                        <p>{{infos[curPage*3-3].BossName}}</p>
+                                        <p>{{info.BossName}}</p>
                                         <label for=" ">注册资本：</label>
-                                        <p id="capital ">{{infos[curPage*3-3].RegisterMoney}}</p>
+                                        <p id="capital ">{{info.RegisterMoney}}</p>
                                         <label for=" ">注册时间：</label>
-                                        <p>{{infos[curPage*3-3].RegisterDate}}</p>
+                                        <p>{{info.RegisterDate}}</p>
                                         <br>
                                         <label for=" ">联系电话：</label>
-                                        <p>{{infos[curPage*3-3].Phone}}</p>
+                                        <p>{{info.Phone}}</p>
                                         <br>
                                         <label for=" ">股东信息：</label>
                                         <p></p>
@@ -25,76 +26,13 @@
                                         <h4></h4>
                                         <br>
                                         <br>
-                                        <p>{{infos[curPage*3-3].Region}}</p>
+                                        <p>{{info.Region}}</p>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
-                        <div class="card well well-sm " *ngIf="totalPage>=1 && totalNum>0 && (curPage*3-2)<totalNum">
-                            <div class="card-body ">
-                                <div class="row ">
-                                    <div class="col-12 col-sm-2 col-md-2 col-lg-2 ">
-                                        <img alt="loading " [src]='infos[curPage*3-2].Logo'>
-                                    </div>
-                                    <div class="col-12 col-sm-8 col-md-8 col-lg-8 ">
-                                        <h4><a [routerLink]="['/details',infos[curPage*3-2].ID]">{{infos[curPage*3-2].Name}}</a></h4>
-                                        <label for=" " style="position: relative;left: 30px; " class="noteLabel ">{{infos[curPage*3-2].State}}</label>
-                                        <br>
-                                        <label for=" ">法定代表人：</label>
-                                        <p>{{infos[curPage*3-2].BossName}}</p>
-                                        <label for=" ">注册资本：</label>
-                                        <p id="capital ">{{infos[1].RegisterMoney}}</p>
-                                        <label for=" ">注册时间：</label>
-                                        <p>{{infos[curPage*3-2].RegisterDate}}</p>
-                                        <br>
-                                        <label for=" ">联系电话：</label>
-                                        <p>{{infos[curPage*3-2].Phone}}</p>
-                                        <br>
-                                        <label for=" ">股东信息：</label>
-                                        <p></p>
-                                    </div>
-                                    <div class="col-12 col-sm-2 col-md-2 col-lg-2 ">
-                                        <h4></h4>
-                                        <br>
-                                        <br>
-                                        <p>{{infos[curPage*3-2].Region}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="card well well-sm " *ngIf="totalPage>=1 && totalNum>0 && (curPage*3-1)<totalNum">
-                            <div class="card-body ">
-                                <div class="row ">
-                                    <div class="col-12 col-sm-2 col-md-2 col-lg-2 ">
-                                        <img alt="loading " [src]='infos[2].Logo'>
-                                    </div>
-                                    <div class="col-12 col-sm-8 col-md-8 col-lg-8 ">
-                                        <h4><a [routerLink]="['/details',infos[curPage*3-1].ID]">{{infos[curPage*3-1].Name}}</a></h4>
-                                        <label for=" " style="position: relative;left: 30px; " class="noteLabel ">{{infos[curPage*3-1].State}}</label>
-                                        <br>
-                                        <label for=" ">法定代表人：</label>
-                                        <p>{{infos[curPage*3-1].BossName}}</p>
-                                        <label for=" ">注册资本：</label>
-                                        <p id="capital ">{{infos[curPage*3-1].RegisterMoney}}</p>
-                                        <label for=" ">注册时间：</label>
-                                        <p>{{infos[curPage*3-1].RegisterDate}}</p>
-                                        <br>
-                                        <label for=" ">联系电话：</label>
-                                        <p>{{infos[curPage*3-1].Phone}}</p>
-                                        <br>
-                                        <label for=" ">股东信息：</label>
-                                        <p></p>
-                                    </div>
-                                    <div class="col-12 col-sm-2 col-md-2 col-lg-2 ">
-                                        <h4></h4>
-                                        <br>
-                                        <br>
-                                        <p>{{infos[curPage*3-1].Region}}</p>
-                                    </div>
-                                </div>
-                            </div></div>
+            </div>          
 <div class="col-md-12 text-right margin-bottom" *ngIf="totalPage>=1 && totalNum>0">
  <a class="pull-left text-sm">总计 {{totalNum}} 条，第 {{curPage}} / {{totalPage}} 页</a>
 
