@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpModule }from '@angular/http';
 import { Routes,RouterModule } from '@angular/router';
 import {Router} from '@angular/router';
@@ -40,7 +40,8 @@ import { RelationshipComponent } from './relationship/relationship.component';
     AppRoutingModule,
     FormsModule,
     HttpModule,
-    NgxEchartsModule
+    NgxEchartsModule,
+    ReactiveFormsModule
   ],
   providers: [InfoService,
   DetailService],
