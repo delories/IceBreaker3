@@ -142,7 +142,7 @@ export class OwnershipComponent implements OnInit {
             }
           }
 
-        },
+        }
 
         ]
       };
