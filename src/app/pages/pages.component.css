@@ -1,0 +1,52 @@
+.noteLabel {
+  border: solid;
+  border-color: #58D68D;
+  padding: 0px 3px 0px 3px;
+}
+
+.card {
+  background-color: #ffffff;
+  border: solid 1px #f2f2f2;
+}
+
+.card:hover {
+  box-shadow: 1px 1px 1px 1px #e6e6e6;
+}
+
+label {
+  color: #848484;
+}
+
+h4 {
+  font-size: 1.180em;
+}
+
+label {
+  font-size: 0.885em;
+  margin: 0;
+  font-weight: normal;
+}
+
+p {
+  font-size: 0.885em;
+  padding: 0px 40px 0px 0px;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  display: inline-block;
+}
+
+h4.header {
+  padding: 0;
+  margin: 0;
+  color: red;
+  display: inline-block;
+}
+img{max-width:75%;max-height:75%}

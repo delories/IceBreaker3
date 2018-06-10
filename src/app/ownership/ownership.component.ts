@@ -33,7 +33,6 @@ export class OwnershipComponent implements OnInit {
 
     console.log(this.id.substr(25));
     console.log(baseUrl + this.id);
-    // $.get('http://115.159.39.220:3444/relations/0/firm_f1c5372005e04ba99175d5fd3db7b8fc.html', function (data) {
     $.get(baseUrl + this.id.substr(25), function (data) {
 //        对获取到的数据进行预处理
       var maxValue = -1;
