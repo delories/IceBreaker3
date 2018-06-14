@@ -6,8 +6,6 @@ import { Http,Headers} from '@angular/http';
 import { map } from 'rxjs/operators';
 import { Observable,of} from 'rxjs';
 import { InfosService } from '../shared/infos.service';
-import { InfosNum } from '../shared/info.service';
-import { PageParams } from '../shared/info.service';
 import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
@@ -21,6 +19,8 @@ export class InfosComponent implements OnInit {
   infosNum:Array<any>=[];
 
 
+  // import { InfosNum } from '../shared/info.service';
+// import { PageParams } from '../shared/info.service';
   public params; // 保存页面url参数
   public totalNum = 0; // 总数据条数
   public pageSize = 3;// 每页数据条数
