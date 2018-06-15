@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-
+import * as $ from 'jquery';
 @Component({
   selector: 'app-relationship',
   templateUrl: './relationship.component.html',
@@ -28,11 +28,14 @@ export class RelationshipComponent implements OnInit {
     console.log(baseUrl + this.id.substr(25));
 
 
-    // TODO 对于管理的筛查
+    // jQuery.ajaxSettings.id=this.id;
+    jQuery.ajaxSetup(id=this.id);
+    //TODO 对于管理的筛查
     $.ajax({
+      // id: this.id,
       url: baseUrl + this.id.substr(25),
-      id: this.id,
       success: function(data1) {
+        console.error("this.id");
         console.log(this.id);
         var data = [];      //存储结点信息
         var dot = [];       //用于去重操作
