@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpModule }from '@angular/http';
 import { Routes,RouterModule } from '@angular/router';
 import {Router} from '@angular/router';
@@ -20,6 +20,7 @@ import { InvestmentComponent } from './investment/investment.component';
 import { OwnershipComponent } from './ownership/ownership.component';
 import { EnterpriseComponent } from './enterprise/enterprise.component';
 import { RelationshipComponent } from './relationship/relationship.component';
+import {HttpClientModule} from '@angular/common/http';
 
 
 
@@ -41,7 +42,9 @@ import { RelationshipComponent } from './relationship/relationship.component';
     AppRoutingModule,
     FormsModule,
     HttpModule,
-    NgxEchartsModule
+    NgxEchartsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [InfoService,
   DetailService],

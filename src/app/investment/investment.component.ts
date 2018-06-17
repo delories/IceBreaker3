@@ -33,15 +33,13 @@ export class InvestmentComponent implements OnInit {
 
     $.get(url1, function (data1) {
       $.get(url2, function (data2) {
-        // console.log(data1);
-        // console.log(data2);
-        const investment = {};
-        const shareholder = {};
+        const investment = {name:"", children:[]};
+        const shareholder = {name:"", children:[]};
         investment.name = '对外投资';
         investment.children = data1.children;
         shareholder.name = '股东';
         shareholder.children = data2.children;
-        const data = {};
+        const data = {name:"", children:[]};
         data.name = data1.name;
         data.children = [];
         data.children.push(investment);

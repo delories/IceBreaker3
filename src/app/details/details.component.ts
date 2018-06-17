@@ -3,7 +3,7 @@ import {ActivatedRoute } from '@angular/router';
 import { Http,Headers} from '@angular/http';
 import { map } from 'rxjs/operators';
 import { Observable,of} from 'rxjs';
-import {Company, Detail } from '../shared/detail.service';
+// import {Company, Detail } from '../shared/detail.service';
 
 @Component({
   selector: 'app-details',
