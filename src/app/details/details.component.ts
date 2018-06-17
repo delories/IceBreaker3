@@ -23,9 +23,6 @@ export class DetailsComponent implements OnInit {
     this.dataSource=this.http.get('http://115.159.39.220:3444/company/'+id_).pipe(map((res)=>res.json()));
     }
 
-  // let Data = [];
-  //
-  //   $.get
 
   chartOption = {
     title: {
@@ -109,9 +106,6 @@ export class DetailsComponent implements OnInit {
     this.id=this.routeInfo.snapshot.params["id"];
     this.dataSource.subscribe((data)=>this.company=data);
     this.dataSource.subscribe((data)=>this.detail=data);
-
-
-
   }
 
 

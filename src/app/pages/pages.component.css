@@ -1,52 +1,107 @@
-.noteLabel {
-        border: solid;
-        border-color: #58D68D;
-        padding: 0px 3px 0px 3px;
+.demo{}
+    .pagination-outer{ text-align: center; }
+    .pagination{
+        display: inline-flex;
+        position: relative;
     }
-
-    .card {
-        background-color: #ffffff;
-        border: solid 1px #f2f2f2;
-    }
-
-    .card:hover {
-        box-shadow: 1px 1px 1px 1px #e6e6e6;
-    }
-
-    label {
-        color: #848484;
-    }
-
-    h4 {
-        font-size: 1.180em;
-    }
-
-    label {
-        font-size: 0.885em;
-        margin: 0;
-        font-weight: normal;
-    }
-
-    p {
-        font-size: 0.885em;
-        padding: 0px 40px 0px 0px;
-        margin: 0;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p {
-        display: inline-block;
-    }
-
-    h4.header {
+    .pagination li a.page-link{
+        width: auto;
+        height:auto;
+        line-height: auto;
+        background: transparent;
+        border: none;
         padding: 0;
-        margin: 0;
-        color: red;
-        display: inline-block;
+        margin-right: 12px;
+        font-size: 22px;
+        font-weight: 600;
+        color: #424242;
+        position: relative;
+        transition: all 0.3s ease 0s;
     }
-    img{max-width:75%;max-height:75%}
+    .pagination li:last-child a.page-link{ margin-right: 0; }
+    .pagination li.active a.page-link,
+    .pagination li a.page-link:hover,
+    .pagination li.active a.page-link:hover{
+        color: #424242;
+        border: none;
+        background: transparent;
+    }
+    .pagination li a.page-link:before{
+        content: "";
+        width: 100%;
+        height: 100%;
+        border: 2px solid #424242;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transition: border-top-width 0.1s ease 0.2s, height 0.2s ease 0.1s, width 0.2s ease 0s, margin 0.2s ease 0s;
+    }
+    .pagination li.active a.page-link:before,
+    .pagination li a.page-link:hover:before,
+    .pagination li.active a.page-link:hover:before{
+        width: 60%;
+        height: 0;
+        border-width: 0 2px 2px;
+        margin: 0 20%;
+        transition: border-top-width 0.1s ease 0s, height 0.2s ease 0.1s, width 0.2s ease 0.2s, margin 0.2s ease 0.2s;
+    }
+    @media only screen and (max-width: 479px){
+        .pagination{ display: block; }
+        .pagination li{ display: inline-block; }
+    }
+    .blockkLink{
+      width:45px;
+    }
+
+.noteLabel {
+  border: solid;
+  border-color: #58D68D;
+  padding: 0px 3px 0px 3px;
+}
+
+.card {
+  background-color: #ffffff;
+  border: solid 1px #f2f2f2;
+}
+
+.card:hover {
+  box-shadow: 1px 1px 1px 1px #e6e6e6;
+}
+
+label {
+  color: #848484;
+}
+
+h4 {
+  font-size: 1.180em;
+}
+
+label {
+  font-size: 0.885em;
+  margin: 0;
+  font-weight: normal;
+}
+
+p {
+  font-size: 0.885em;
+  padding: 0px 40px 0px 0px;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  display: inline-block;
+}
+
+h4.header {
+  padding: 0;
+  margin: 0;
+  color: red;
+  display: inline-block;
+}
+img{max-width:75%;max-height:75%}
