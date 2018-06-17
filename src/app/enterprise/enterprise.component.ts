@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {ActivatedRoute,Router} from '@angular/router';
 import * as _ from 'lodash';
 @Component({
   selector: 'app-enterprise',
@@ -7,16 +8,18 @@ import * as _ from 'lodash';
 })
 export class EnterpriseComponent implements OnInit {
 
-  @Input()
-  id: string;
+  @Input('id') id: string;
+  public id:string;
 
-  constructor() {
+  constructor(private routeInfo: ActivatedRoute,private router: Router) {
+  let id=this.id=this.routeInfo.snapshot.params["id"];
   }
 
 
   chartOption = {};
 
   ngOnInit() {
+  	
 
     let option = {};
     const baseUrl = 'http://115.159.39.220:3444/relations/';
@@ -26,8 +29,8 @@ export class EnterpriseComponent implements OnInit {
     });
     console.warn('warn');
 
-    const url1 = baseUrl + '1/' + this.id.substr(25);
-    const url2 = baseUrl + '0/' + this.id.substr(25);
+    const url1 = baseUrl + '1/' + this.id.substring(25);
+    const url2 = baseUrl + '0/' + this.id.substring(25);
     console.log(url1);
     console.log(url2);
 

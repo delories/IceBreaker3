@@ -27,7 +27,6 @@ export class PagesComponent implements OnInit{
 
   // 父组件向子组件传值
   @Output() changeCurPage:EventEmitter<Number> = new EventEmitter;// 子组件向父组件广播事件，触发改变当前页面的事件
-
   public pageList = [1, 2, 3, 4, 5];
 
   constructor(private http:Http,private routeInfo: ActivatedRoute) {
