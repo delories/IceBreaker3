@@ -20,6 +20,7 @@ import { InvestmentComponent } from './investment/investment.component';
 import { OwnershipComponent } from './ownership/ownership.component';
 import { EnterpriseComponent } from './enterprise/enterprise.component';
 import { RelationshipComponent } from './relationship/relationship.component';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { RelationshipComponent } from './relationship/relationship.component';
     FormsModule,
     HttpModule,
     NgxEchartsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [InfoService,
   DetailService],

@@ -47,7 +47,8 @@ export class EnterpriseComponent implements OnInit {
         var array_manager = _.remove(array_shareholder, function (n) {
           console.error("n");
           console.error(n);
-          return n.value[0] == '0';
+          let temp = n as {value};      //ok... fine
+          return temp.value[0] == '0';
           // return n[0]=='0';
         });
         shareholder.children = array_shareholder;
