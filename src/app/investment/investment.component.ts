@@ -25,12 +25,10 @@ export class InvestmentComponent implements OnInit {
       async: false
     });
     // console.warn('warn');
-
     const url1 = baseUrl + '1/' + this.id.substr(25) + '/3';
     const url2 = baseUrl + '0/' + this.id.substr(25) + '/3';
     // console.log(url1);
     // console.log(url2);
-
     $.get(url1, function (data1) {
       $.get(url2, function (data2) {
         const investment = {name:"", children:[]};

@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {newData} from '../shared/newdata.service';
 
 @Component({
   selector: 'app-ownership',

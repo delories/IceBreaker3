@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';import { HttpModule }from '@angular/http';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
+import { HttpModule }from '@angular/http';
 import { Routes,RouterModule } from '@angular/router';
 import {Router} from '@angular/router';
 
@@ -15,10 +19,14 @@ import { InfoService } from './shared/info.service';
 import { DetailService } from './shared/detail.service';
 
 import {NgxEchartsModule} from 'ngx-echarts';
-import { InvestmentComponent } from './investment/investment.component';
-import { OwnershipComponent } from './ownership/ownership.component';
-import { EnterpriseComponent } from './enterprise/enterprise.component';
-import { RelationshipComponent } from './relationship/relationship.component';
+import { MainStaffComponent } from './main-staff/main-staff.component';
+import { TheInvestmentComponent } from './the-investment/the-investment.component';
+import { ShareholderComponent } from './shareholder/shareholder.component';
+import {RelationshipComponent} from './relationship/relationship.component';
+import {EnterpriseComponent} from './enterprise/enterprise.component';
+import {InvestmentComponent} from './investment/investment.component';
+import {OwnershipComponent} from './ownership/ownership.component';
+
 
 
 
@@ -30,19 +38,24 @@ import { RelationshipComponent } from './relationship/relationship.component';
     HomeComponent,
     SearchComponent,
     PagesComponent,
-    InvestmentComponent,
+    MainStaffComponent,
+    TheInvestmentComponent,
+    ShareholderComponent,
     OwnershipComponent,
+    InvestmentComponent,
     EnterpriseComponent,
-    RelationshipComponent,
+    RelationshipComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpModule,
-    NgxEchartsModule,
-    ReactiveFormsModule
-  ],  providers: [InfoService,
+NgxEchartsModule,
+ReactiveFormsModule 
+ ],
+
+  providers: [InfoService,
   DetailService],
   bootstrap: [AppComponent]
 })
