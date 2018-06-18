@@ -1,21 +1,35 @@
-  <nav class="center-block container" style="position:fixed;z-index:99;">
-    <div class="row">
-        <div class="col-12 col-sm-1 col-md-1 col-lg-1" style="background-color:#ffffff;"></div>
-                        <form role="form" class="col-12 col-sm-6 col-md-6 col-lg-6" >
-                            <ol class="breadcrumb" style="margin:0px;padding:13px 0px 5px 0px;background-color:white;">
-                                <li><a href="">查公司</a></li>
-                                <li><a href="">查老板</a></li>
-                                <li><a href="">查关系</a></li>
-                            </ol>
+  <nav class="center-block container" style="position:fixed;z-index:99;background:#F2F2F2">
+    <div class="row"><br>
+                        <form role="form" class="col-12 col-sm-6 col-md-6 col-lg-6">
                             <div class="input-group " style="background-color:#ffffff;">
-                                <input class="form-control" [(ngModel)]="key" type=”text” name=”key” id=”” placeholder="请输入企业名称，人名等其他关键词，多关键词用空格隔开" />
+                                <input class="form-control" [(ngModel)]="key" type=”text” name=”key” id=”” placeholder="请输入企业名称，人名等其他关键词，多关键词用空格隔开" style="height:40px;"/>
                                 <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button" (click)="toInfos(key)">Go!</button>
+                                        <button class="btn btn-default" type="button" (click)="toInfos(key)" style="height:40px;">Go!</button>
                                     </span>
 
                             </div>
-                            <br><br>
+                            <br>
                         </form>                
     </div>
                         
                     </nav>
+          <!--          <div  style="margin-top:18%;position:fixed;z-index: 99">
+
+        
+            <div class="col-12 col-sm-3 col-md-3 col-lg-3"></div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6" >
+                <form role="form">
+                           
+                            <div class="input-group">
+                                <input class="form-control" [(ngModel)]="key" name ="key" type=”text” placeholder="请输入企业名称，人名等其他关键词，多关键词用空格隔开" style="height:45px;"/>
+                                <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button" style="height:45px;font-size-adjust:1.2" (click)="toInfos(key)">Go!</button>
+                                    </span>
+
+                            </div>
+                           
+                        </form>
+            </div>
+            <div class="col-12 col-sm-3 col-md-3 col-lg-3"></div>
+     
+</div>-->

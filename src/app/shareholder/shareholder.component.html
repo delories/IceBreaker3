@@ -1,3 +1,52 @@
-<p>
-  shareholder works!
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <p class="bold">对外投资</p><span class="badge" id="shareholderNumber">{{this.hoders.children.length}}</span></div>
+  <!--做出分页效果，每一页显示10个左右-->
+  <div class="panel-body row">
+    <table
+      class="col-12 col-sm-12 col-md-12 col-lg-12 table-hover table-condensed table-bordered table-hover investment">
+      <thead>
+      <tr>
+        <td>被投资公司名称</td>
+        <td>被投资法定代表人</td>
+        <td>注册资本</td>
+        <td>投资数额</td>
+        <td>投资占比</td>
+        <td>注册时间</td>
+        <td>状态</td>
+      </tr>
+      </thead>
+      <tbody *ngFor="let hoder of hoders.children">
+      <tr>
+        <td><a href="">{{hoder.name}}</a></td>
+        <td><a href="">
+          胡晓明
+        </a></td>
+        <td>8000.000000万人民币</td>
+        <td>8000万元人民币</td>
+        <td>100%</td>
+        <td>2016-09-18</td>
+        <td>续存（在营，开业，在册）</td>
+      </tr>
+      <tr>
+        <td><a href="">贵州阿里云计算有限公司</a></td>
+        <td><a href="">胡晓明</a></td>
+        <td>1000万元</td>
+        <td>1000万元人民币</td>
+        <td>100%</td>
+        <td>2016-09-18</td>
+        <td>续存（在营，开业，在册）</td>
+      </tr>
+      <tr>
+        <td><a href="">阿里巴巴（北京）软件服务有限公司</a></td>
+        <td><a href="">黎直前</a></td>
+        <td>1000万元人民币</td>
+        <td>1000万元人民币</td>
+        <td>100%</td>
+        <td>2015-07-30</td>
+        <td>开业</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,3 +1,31 @@
-<p>
-  the-investment works!
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <p class="bold">股东信息</p><span class="badge" id="shareholderNumber">{{this.investments.children.length}}</span></div>
+  <div class="panel-body row">
+    <table class="table-condensed table-bordered table-hover col-12 col-sm-12 col-md-12 col-lg-12">
+      <thead>
+      <tr>
+        <td class="col-12 col-sm-6 col-md-6 col-lg-6">
+          <p>股东</p>
+        </td>
+        <td class="col-12 col-sm-2 col-md-2 col-lg-2">
+          <p>出资比例</p>
+        </td>
+        <td class="col-12 col-sm-4 col-md-4 col-lg-4">
+          <p>认缴出资</p>
+        </td>
+      </tr>
+      </thead>
+      <tbody *ngFor="let i of investments.children">
+      <tr>
+        <td><a href=""><a href=""><p>{{i.name}}</p></a></a>
+        </td>
+        <td>
+          <p>{{i.value}}</p>
+        </td>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
