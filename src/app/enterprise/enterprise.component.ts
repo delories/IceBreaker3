@@ -8,19 +8,16 @@ import * as _ from 'lodash';
 })
 export class EnterpriseComponent implements OnInit {
 
-  @Input('id') id: string;
-  public id:string;
+  @Input('id')
+  id: string;
 
   constructor(private routeInfo: ActivatedRoute,private router: Router) {
-  let id=this.id=this.routeInfo.snapshot.params["id"];
   }
 
 
   chartOption = {};
 
   ngOnInit() {
-  	
-
     let option = {};
     const baseUrl = 'http://115.159.39.220:3444/relations/';
 
