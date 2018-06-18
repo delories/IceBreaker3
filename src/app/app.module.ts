@@ -27,6 +27,9 @@ import {EnterpriseComponent} from './enterprise/enterprise.component';
 import {InvestmentComponent} from './investment/investment.component';
 import {OwnershipComponent} from './ownership/ownership.component';
 import {HttpClientModule} from '@angular/common/http';
+import { MainStaffComponent } from './main-staff/main-staff.component';
+import { TheInvestmentComponent } from './the-investment/the-investment.component';
+import { ShareholderComponent } from './shareholder/shareholder.component';
 
 
 
@@ -46,6 +49,9 @@ import {HttpClientModule} from '@angular/common/http';
     InvestmentComponent,
     EnterpriseComponent,
     RelationshipComponent
+    MainStaffComponent,
+    TheInvestmentComponent,
+    ShareholderComponent
   ],
   imports: [
     BrowserModule,
