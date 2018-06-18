@@ -15,12 +15,23 @@ export class ShareholderComponent implements OnInit {
   constructor(private routeInfo: ActivatedRoute,private http:Http) { 
 	let id=this.routeInfo.snapshot.params["id"];
   	let id_=id.substring(25);
-	this.dataSource=this.http.get('http://115.159.39.220:3444/relations/1/'+id_).pipe(map((res)=>res.json()));
+	this.dataSource=this.http.get('http://115.159.39.220:3444/relations/1/'+id_+"/total").pipe(map((res)=>res.json()));
   }
 
   ngOnInit() {
     this.dataSource.subscribe((data)=>this.hoders=data);
 
+  }
+   moneyMatch(str){
+  if(str==null){
+  return "-";
+  }
+    else if(escape(str).indexOf("-")<0){
+    return str;
+    }
+    else{
+    return "-";
+    }
   }
 
 }

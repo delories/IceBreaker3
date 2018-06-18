@@ -3,6 +3,7 @@ import {ActivatedRoute,Router} from '@angular/router';
 import { Http,Headers} from '@angular/http';
 import { map } from 'rxjs/operators';
 import { Observable,of} from 'rxjs';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-the-investment',
@@ -21,6 +22,17 @@ export class TheInvestmentComponent implements OnInit {
 
   ngOnInit() {
    this.dataSource.subscribe((data)=>this.investments=data);
+  }
+  holdersFilter(holders){
+  return _.filter(holders,function(o){return _.startsWith(o.value,'1');})
+  }
+  moneyMatch(str){
+    if(escape(str).indexOf("%u")<0){
+    return str+"万人民币";
+    }
+    else{
+    return str;
+    }
   }
 
 }

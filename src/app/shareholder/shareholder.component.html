@@ -17,37 +17,20 @@
         <td>状态</td>
       </tr>
       </thead>
-      <tbody *ngFor="let hoder of hoders.children">
-      <tr>
-        <td><a href="">{{hoder.name}}</a></td>
-        <td><a href="">
-          胡晓明
-        </a></td>
-        <td>8000.000000万人民币</td>
-        <td>8000万元人民币</td>
-        <td>100%</td>
-        <td>2016-09-18</td>
-        <td>续存（在营，开业，在册）</td>
-      </tr>
-      <tr>
-        <td><a href="">贵州阿里云计算有限公司</a></td>
-        <td><a href="">胡晓明</a></td>
-        <td>1000万元</td>
-        <td>1000万元人民币</td>
-        <td>100%</td>
-        <td>2016-09-18</td>
-        <td>续存（在营，开业，在册）</td>
-      </tr>
-      <tr>
-        <td><a href="">阿里巴巴（北京）软件服务有限公司</a></td>
-        <td><a href="">黎直前</a></td>
-        <td>1000万元人民币</td>
-        <td>1000万元人民币</td>
-        <td>100%</td>
-        <td>2015-07-30</td>
-        <td>开业</td>
-      </tr>
-      </tbody>
+     <tbody>
+                          <tr *ngFor="let hoder of hoders.children">
+                            <td><a href="">{{hoder.name}}</a></td>
+                            <td><a href="">
+                              {{hoder.detail[0].BossName}}
+                            </a></td>
+                            <td>{{hoder.detail[0].RegisterMoney}}</td>
+                            <td>{{hoder.value.substring(hoder.value.indexOf("%")+2)}}</td>
+                            <td>{{moneyMatch(hoder.value.substring(1,hoder.value.indexOf("%")+1))}}</td>
+                            <td>{{hoder.detail[0].RegisterDate}}</td>
+                            <td>{{hoder.detail[0].State}}</td>
+                          </tr>
+                          
+                          </tbody>
     </table>
   </div>
 </div>
