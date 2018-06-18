@@ -6,7 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
-import {Router} from '@angular/router';
+import {Router}
+from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,9 +28,6 @@ import {EnterpriseComponent} from './enterprise/enterprise.component';
 import {InvestmentComponent} from './investment/investment.component';
 import {OwnershipComponent} from './ownership/ownership.component';
 import {HttpClientModule} from '@angular/common/http';
-import { MainStaffComponent } from './main-staff/main-staff.component';
-import { TheInvestmentComponent } from './the-investment/the-investment.component';
-import { ShareholderComponent } from './shareholder/shareholder.component';
 
 
 
@@ -49,9 +47,6 @@ import { ShareholderComponent } from './shareholder/shareholder.component';
     InvestmentComponent,
     EnterpriseComponent,
     RelationshipComponent
-    MainStaffComponent,
-    TheInvestmentComponent,
-    ShareholderComponent
   ],
   imports: [
     BrowserModule,
