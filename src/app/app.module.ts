@@ -4,8 +4,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
-import { HttpModule }from '@angular/http';
-import { Routes,RouterModule } from '@angular/router';
+import { HttpModule } from '@angular/http';
+import { Routes, RouterModule } from '@angular/router';
 import {Router} from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -55,7 +55,7 @@ import {HttpClientModule} from '@angular/common/http';
     NgxEchartsModule,
     ReactiveFormsModule,
     HttpClientModule
-  ],  
+  ],
   providers: [InfoService,
   DetailService],
   bootstrap: [AppComponent]

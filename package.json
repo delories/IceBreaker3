@@ -26,8 +26,8 @@
     "echarts": "^4.1.0",
     "jquery": "^3.3.1",
     "lodash": "^4.17.10",
-    "ngx-echarts": "^3.0.0",
-    "rxjs": "^6.0.0",
+    "ngx-echarts": "^3.1.0",
+    "rxjs": "^6.2.1",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
@@ -43,7 +43,7 @@
     "codelyzer": "~4.2.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
-    "karma": "^2.0.2",
+    "karma": "^2.0.3",
     "karma-chrome-launcher": "~2.2.0",
     "karma-coverage-istanbul-reporter": "~1.4.2",
     "karma-jasmine": "~1.1.1",
