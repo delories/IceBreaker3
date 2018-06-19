@@ -13,9 +13,10 @@ import * as _ from 'lodash';
 export class MainStaffComponent implements OnInit {
 
    dataSource:Observable<any>;
-   staff:Array<any>=[];
+   staff:Array<any>;
 
-  constructor(private routeInfo: ActivatedRoute,private http:Http) { 
+
+  constructor(private routeInfo: ActivatedRoute,private http:Http) {
     let id=this.routeInfo.snapshot.params["id"];
     let id_=id.substring(25);
   this.dataSource=this.http.get('http://115.159.39.220:3444/relations/0/'+id_).pipe(map((res)=>res.json()));
