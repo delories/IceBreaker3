@@ -21,17 +21,12 @@ export class EnterpriseComponent implements OnInit {
     $.ajaxSetup({
       async: false
     });
-    console.warn('warn');
 
     const url1 = baseUrl + '1/' + this.id.substr(25);
     const url2 = baseUrl + '0/' + this.id.substr(25);
-    console.log(url1);
-    console.log(url2);
 
     $.get(url1, function (data1) {
       $.get(url2, function (data2) {
-        console.log(data1);
-        console.log(data2);
         var investment = {name:"1",children:[]};
         var shareholder = {name:"1",children:[]};
         var manager = {name:"1",children:[]};
@@ -42,8 +37,6 @@ export class EnterpriseComponent implements OnInit {
         manager.name = "高管";
         var array_shareholder = data2.children;
         var array_manager = _.remove(array_shareholder, function (n) {
-          console.error("n");
-          console.error(n);
           let temp = n as {value};      //ok... fine
           return temp.value[0] == '0';
           // return n[0]=='0';
@@ -58,6 +51,9 @@ export class EnterpriseComponent implements OnInit {
         data.children.push(investment);
         data.children.push(shareholder);
         data.children.push(manager);
+
+        console.error("this is enterprise");
+        console.log(data);
 
         option = {
           title: {
