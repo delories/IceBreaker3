@@ -21,10 +21,6 @@ export class OwnershipComponent implements OnInit {
     const Data = [];      //存储待处理数据信息
     const dot = [];       //用于去重操作
     const baseUrl = 'http://115.159.39.220:3444/relations/0/';
-    interface newdata1 {
-      value: number;
-      name: string;
-    }
 
     $.ajaxSetup({
       async: false
