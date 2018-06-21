@@ -33,33 +33,34 @@ export class InvestmentComponent implements OnInit {
       $.get(url2, function (data2) {
         // let investment = {name:"", children:{value:"",name:""}};
         // let shareholder = {name:"", children:{value:"",name:""}};
-        let investment = [];
-        let shareholder = [];
+        let investment = {name:"", children:[]};
+        let shareholder = {name:"", children:[]};
         investment.name = '对外投资';
-        // investment.children=data1.children;
-        investment.children.value = data1.children.value;
-        investment.children.name = data1.children.name;
+        investment.children=data1.children;
+        // investment.children.value = data1.children.value;
+        // investment.children.name = data1.children.name;
         shareholder.name = '股东';
-        // shareholder.children = data2.children;
-        shareholder.children.value = data2.children.value;
-        shareholder.children.name = data2.children.name;
+        shareholder.children = data2.children;
+        // shareholder.children.value = data2.children.value;
+        // shareholder.children.name = data2.children.name;
 
-        //遍历data1
-        for (let i = 0; i < data1.children.length; i++) {
-          let newData = {value:"",name:""};
-          newData.value=data1.children.value;
-          newData.name=data1.children.name;
-          investment.push(newData);
-        }
+        // //遍历data1
+        // for (let i = 0; i < data1.children.length; i++) {
+        //   let newData = {value:"",name:""};
+        //   newData.value=data1.children.value;
+        //   newData.name=data1.children.name;
+        //   investment.push(newData);
+        // }
 
-        console.warn("this is inv and shareh");
-        console.log(shareholder);
-        console.log(investment);
+        // console.warn("this is inv and shareh");
+        // console.log(shareholder);
+        // console.log(investment);
         const data = {name:"", children:[]};
         data.name = data1.name;
         data.children = [];
         data.children.push(investment);
         data.children.push(shareholder);
+        console.log(data);
 
         option = {
           title: {
