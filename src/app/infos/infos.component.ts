@@ -15,12 +15,11 @@ import {FormControl, FormGroup} from '@angular/forms';
 })
 export class InfosComponent implements OnInit {
   public key:string;
+  public type:string;
   dataSource:Observable<any>;
   infosNum:Array<any>=[];
 
 
-  // import { InfosNum } from '../shared/info.service';
-// import { PageParams } from '../shared/info.service';
   public params; // 保存页面url参数
   public totalNum = 0; // 总数据条数
   public pageSize = 3;// 每页数据条数
@@ -35,11 +34,11 @@ states = [
     {sortKey: 'RegisterDate',sortOrder:'asc',abbrev: '按注册时间升序'},
   ];
 
-  public type:string;
 
   constructor(location:Location,private routeInfo: ActivatedRoute,private http:Http,private router: Router) {
     let key=this.key=this.routeInfo.snapshot.params["key"];
-    this.dataSource=this.http.get('http://115.159.39.220:3444/search/'+key+'/num').pipe(map((res)=>res.json()));
+    let type=this.type=this.routeInfo.snapshot.params["type"];
+    this.dataSource=this.http.get('http://115.159.39.220:3444/search/'+type+"/"+key+'/num').pipe(map((res)=>res.json()));
 
     let vm = this;
     if (vm.params) {
@@ -67,6 +66,7 @@ states = [
 
   ngOnInit() {
     this.key=this.routeInfo.snapshot.params["key"];
+    this.type=this.routeInfo.snapshot.params["type"];
     this.dataSource.subscribe((data)=>this.infosNum=data);
 
   }

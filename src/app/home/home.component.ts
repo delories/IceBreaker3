@@ -11,12 +11,21 @@ export class HomeComponent implements OnInit {
 
   // @Input()
   key:string;
-
+  public type="Name";
   constructor(private router: Router) { }
 
   ngOnInit() {
   }
-toInfos(key:string){
-  	this.router.navigate(['/infos',key]);
+toInfos(type:string,key:string){
+  	this.router.navigate(['/infos',type,key]);
   }
+  setBoss(){
+  this.type="BossName";
+}
+setName(){
+  this.type="Name";
+}
+setProduct(){
+  this.type="MainProduct";
+}
 }

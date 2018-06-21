@@ -28,10 +28,6 @@ export class DetailsComponent implements OnInit {
     this.id=this.routeInfo.snapshot.params["id"];
     this.dataSource.subscribe((data)=>this.company=data);
     this.dataSource.subscribe((data)=>this.detail=data);
-
-
-
-
   }
 
 

@@ -9,35 +9,25 @@ import {Router} from '@angular/router';
 })
 export class SearchComponent implements OnInit {
   public key:string;
+  public type="Name";
 
   constructor(private router: Router) { }
 
   ngOnInit() {
-      /*$(function(){
-      var myData=[{'name':'zhangshan','height':'1.76'},{'name':'lisi','height':'1.86'},{'name':'wangwu','height':'1.96'}];
-      $("#tags").autocomplete({
-      source:myData,
-      focus:function(event,ui){
-        console.log('选中了');
-        console.dir(ui);
-        return false;
-      },
-      select:function(e,ui){
-        $('#tags').val(ui.item.name+'===>'+ui.item.height);
-        return false;
-      }
-      }).autocomplete("instance")._renderItem=function(ul,item){
-        return $("<li>")
-        .append("<div><span>"+item.name+"</span><br>"+item.height+"</div>")
-        .appendTo(ul);
-
-      };
-
-      });*/
+      
   }
-   toInfos(key:string){
-  this.router.navigate(['/infos',key]);
-  window.location.reload();
+  toInfos(type:string,key:string){
+    this.router.navigate(['/infos',type,key]);
+    window.location.reload();
   }
+  setBoss(){
+  this.type="BossName";
+}
+setName(){
+  this.type="Name";
+}
+setProduct(){
+  this.type="MainProduct";
+}
 
 }

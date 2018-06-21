@@ -18,6 +18,7 @@ export class PagesComponent implements OnInit{
   infos:Array<any>=[];
 
   @Input('key') key:string;
+  @Input('type') type:string;
   @Input('pageSize') pageSize:number;
   @Input('totalNum') totalNum:number;
   @Input('curPage') curPage:number;
@@ -31,7 +32,8 @@ export class PagesComponent implements OnInit{
 
   constructor(private http:Http,private routeInfo: ActivatedRoute) {
     let key=this.routeInfo.snapshot.params["key"];
-    this.dataSource=this.http.get("http://115.159.39.220:3444/search/"+key+"/"+this.totalNum+"/1").pipe(map((res)=>res.json()));
+    let type=this.routeInfo.snapshot.params["type"];
+    this.dataSource=this.http.get("http://115.159.39.220:3444/search/"+type+"/"+key+"/"+this.totalNum+"/1").pipe(map((res)=>res.json()));
 
   }
 
