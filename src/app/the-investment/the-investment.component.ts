@@ -27,12 +27,14 @@ export class TheInvestmentComponent implements OnInit {
   return _.filter(holders,function(o){return _.startsWith(o.value,'1');})
   }
   moneyMatch(str){
-    if(escape(str).indexOf("%u")<0){
-    return str+"万人民币";
+
+    if(escape(str).indexOf("%u")<0&&escape(str).indexOf("-")<0){
+    return str+"(万人民币)";
     }
     else{
     return str;
     }
   }
+
 
 }

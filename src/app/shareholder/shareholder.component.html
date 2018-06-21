@@ -24,7 +24,7 @@
                               {{hoder.detail[0].BossName}}
                             </a></td>
                             <td>{{hoder.detail[0].RegisterMoney}}</td>
-                            <td>{{hoder.value.substring(hoder.value.indexOf("%")+2)}}</td>
+                            <td>{{moneyStringMatch(hoder.value.substring(hoder.value.indexOf("%")+2))}}</td>
                             <td>{{moneyMatch(hoder.value.substring(1,hoder.value.indexOf("%")+1))}}</td>
                             <td>{{hoder.detail[0].RegisterDate}}</td>
                             <td>{{hoder.detail[0].State}}</td>

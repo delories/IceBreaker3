@@ -1,8 +1,12 @@
   <nav class="center-block container" style="position:fixed;z-index:99;background:#F2F2F2">
     <div class="row"><br>
-                        <form role="form" class="col-12 col-sm-6 col-md-6 col-lg-6">
+                        <form role="form" class="col-12 col-sm-6 col-md-6 col-lg-6 ui-widget">
+                            <!-- <ol class="breadcrumb" style="margin:0px;padding:3px 0px 0px 0px;background-color:rgba(0,0,0,0);font-size:110%">
+                            <li><a href="">查公司</a></li>
+                            <li><a href="">查老板</a></li>
+                        </ol>-->
                             <div class="input-group " style="background-color:#ffffff;">
-                                <input class="form-control" [(ngModel)]="key" type=”text” name=”key” id=”” placeholder="请输入企业名称，人名等其他关键词，多关键词用空格隔开" style="height:40px;"/>
+                                <input class="form-control" [(ngModel)]="key" type=”text” name=”key” id="tags" placeholder="请输入企业名称，人名等其他关键词，多关键词用空格隔开" style="height:40px;"/>
                                 <span class="input-group-btn">
                                         <button class="btn btn-default" type="button" (click)="toInfos(key)" style="height:40px;">Go!</button>
                                     </span>

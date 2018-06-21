@@ -33,5 +33,21 @@ export class ShareholderComponent implements OnInit {
     return "-";
     }
   }
+   moneyStringMatch(str){
+    if(str==null){
+    return "-";
+     }
+    else if(escape(str).indexOf("-")<0){
+         if(escape(str).indexOf("%u")<0){
+         return str+"（万人民币）";
+
+         }
+         else
+          return str;
+    }
+    else{
+    return "-";
+    }
+  }
 
 }
