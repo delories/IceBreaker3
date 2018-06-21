@@ -21,6 +21,7 @@ export class OwnershipComponent implements OnInit {
     const Data = [];      //存储待处理数据信息
     const dot = [];       //用于去重操作
     const baseUrl = 'http://115.159.39.220:3444/relations/0/';
+    let bigShareholder;
 
     $.ajaxSetup({
       async: false
@@ -34,14 +35,12 @@ export class OwnershipComponent implements OnInit {
 
       let maxValue = -1;
       let maxName;
-      const thisName = data.name;
+      let thisName = data.name;
       for (let i = 0; i < data.children.length; i++) {
         if (data.children[i].value[0] === '1') {
           if (dot.indexOf(data.children[i].name) == -1) {
             dot.push(data.children[i].name);
-            // var reg = /\d+(\.\d+)?万元$/;
             const reg = /\d+(\.\d+)?/;
-            // var reg = /\d+(\.\d+)?$/;
             const test = data.children[i].value.match(reg);
 
             console.error('here');
@@ -72,6 +71,7 @@ export class OwnershipComponent implements OnInit {
       //寻找大股东
       for (let i = 0; i < Data.length; i++) {
         if (Data[i].value == maxValue) {
+          bigShareholder=Data[i].name;
           Data[i].name += '(大股东)';
         }
       }
@@ -89,6 +89,7 @@ export class OwnershipComponent implements OnInit {
       console.warn('Data');
       console.warn(Data);
       // 指定图表的配置项和数据
+      thisName=thisName+"\n\n\n实际控股人: "+bigShareholder;
       option = {
         title: {
           text: '股权结构',
