@@ -1,1 +1,8 @@
+<h2><span>请选择显示层级：</span></h2>
+<select class="form-control" (change)="selectChangeHandler($event)">
+  <option value=1>一层</option>
+  <option value=2>二层</option>
+  <option value=3>三层</option>
+  <option value=4>四层</option>
+</select>
 <div echarts [options]="chartOption" class="demo-chart"></div>

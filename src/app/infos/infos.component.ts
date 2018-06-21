@@ -39,7 +39,7 @@ states = [
 
   constructor(location:Location,private routeInfo: ActivatedRoute,private http:Http,private router: Router) {
     let key=this.key=this.routeInfo.snapshot.params["key"];
-    this.dataSource=this.http.get('http://115.159.39.220:3444/search/'+key+'/num').pipe(map((res)=>res.json()));
+    this.dataSource=this.http.get('http://115.159.39.220:3444/search/Name/'+key+'/num').pipe(map((res)=>res.json()));
 
     let vm = this;
     if (vm.params) {

@@ -31,7 +31,7 @@ export class PagesComponent implements OnInit{
 
   constructor(private http:Http,private routeInfo: ActivatedRoute) {
     let key=this.routeInfo.snapshot.params["key"];
-    this.dataSource=this.http.get("http://115.159.39.220:3444/search/"+key+"/"+this.totalNum+"/1").pipe(map((res)=>res.json()));
+    this.dataSource=this.http.get("http://115.159.39.220:3444/search/Name/"+key+"/"+this.totalNum+"/1").pipe(map((res)=>res.json()));
 
   }
 
