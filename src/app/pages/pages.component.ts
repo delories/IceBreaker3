@@ -18,6 +18,7 @@ export class PagesComponent implements OnInit{
   infos:Array<any>=[];
 
   @Input('key') key:string;
+  @Input('searchType') searchType:string;
   @Input('pageSize') pageSize:number;
   @Input('totalNum') totalNum:number;
   @Input('curPage') curPage:number;
@@ -31,7 +32,8 @@ export class PagesComponent implements OnInit{
 
   constructor(private http:Http,private routeInfo: ActivatedRoute) {
     let key=this.routeInfo.snapshot.params["key"];
-    this.dataSource=this.http.get("http://115.159.39.220:3444/search/"+key+"/"+this.totalNum+"/1").pipe(map((res)=>res.json()));
+    let searchType=this.routeInfo.snapshot.params["type"];
+    this.dataSource=this.http.get("http://115.159.39.220:3444/search/"+searchType+'/'+key+"/"+this.totalNum+"/1").pipe(map((res)=>res.json()));
 
   }
 
@@ -86,6 +88,14 @@ export class PagesComponent implements OnInit{
   ngOnInit() {
     this.dataSource.subscribe((data)=>this.infos=data);
 
+  }
+  mainProductLimit(str:string,lenn:number){
+    if(str.length<=lenn){
+    return str;
+    }
+    else{
+    return str.substring(0,lenn)+"...";
+    }
   }
   infosSort(infos){
     if(this.sortKey=="RegisterMoney"){

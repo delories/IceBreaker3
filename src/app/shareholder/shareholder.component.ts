@@ -49,5 +49,8 @@ export class ShareholderComponent implements OnInit {
     return "-";
     }
   }
+  holdersFilter(holders){
+  return _.uniqBy(holders,'id');
+  }
 
 }

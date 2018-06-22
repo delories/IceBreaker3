@@ -24,7 +24,10 @@ export class TheInvestmentComponent implements OnInit {
    this.dataSource.subscribe((data)=>this.investments=data);
   }
   holdersFilter(holders){
-  return _.filter(holders,function(o){return _.startsWith(o.value,'1');})
+  let hoder=_.filter(holders,function(o){
+    return _.startsWith(o.value,'1');}
+    );
+  return _.uniqBy(hoder,'id');
   }
   moneyMatch(str){
 
