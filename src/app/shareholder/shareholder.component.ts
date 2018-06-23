@@ -3,6 +3,8 @@ import {ActivatedRoute,Router} from '@angular/router';
 import { Http,Headers} from '@angular/http';
 import { map } from 'rxjs/operators';
 import { Observable,of} from 'rxjs';
+import * as _ from 'lodash';
+
 @Component({
   selector: 'app-shareholder',
   templateUrl: './shareholder.component.html',
@@ -32,6 +34,25 @@ export class ShareholderComponent implements OnInit {
     else{
     return "-";
     }
+  }
+   moneyStringMatch(str){
+    if(str==null){
+    return "-";
+     }
+    else if(escape(str).indexOf("-")<0){
+         if(escape(str).indexOf("%u")<0){
+         return str+"（万人民币）";
+
+         }
+         else
+          return str;
+    }
+    else{
+    return "-";
+    }
+  }
+  holdersFilter(holders){
+  return _.uniqBy(holders,'id');
   }
 
 }

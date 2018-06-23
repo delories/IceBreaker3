@@ -1,13 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { polyfill as keyboardEventKeyPolyfill } from 'keyboardevent-key-polyfill';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
+import { TextInputAutocompleteModule } from 'angular-text-input-autocomplete';
 import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
-import {Router}
-from '@angular/router';
+import {Router} from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,7 +26,7 @@ import {RelationshipComponent} from './relationship/relationship.component';
 import {EnterpriseComponent} from './enterprise/enterprise.component';
 import {InvestmentComponent} from './investment/investment.component';
 import {OwnershipComponent} from './ownership/ownership.component';
-import {HttpClientModule} from '@angular/common/http';
+
 
 
 
@@ -55,7 +54,9 @@ import {HttpClientModule} from '@angular/common/http';
     HttpModule,
     NgxEchartsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    TextInputAutocompleteModule
+
   ],
   providers: [InfoService,
   DetailService],

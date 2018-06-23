@@ -9,8 +9,7 @@ import { PagesComponent } from './pages/pages.component';
 const routes: Routes = [
 {path:' ',redirectTo:'/home',pathMatch:'full'},
 {path:'home',component:HomeComponent},
-{path:'infos/:key',component:InfosComponent},
-{path:'details/:id',component:DetailsComponent},
+{path:'infos/:key/:type',component:InfosComponent},{path:'details/:id',component:DetailsComponent},
 {path:'**',component:HomeComponent}];
 
 @NgModule({
