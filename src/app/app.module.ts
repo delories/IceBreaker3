@@ -1,14 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
-import { Routes, RouterModule } from '@angular/router';
-import {Router} from '@angular/router';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatAutocompleteModule, MatInputModule } from '@angular/material';
-
-
-import { AppRoutingModule } from './app-routing.module';
+import { NgModule } from '@angular/core';import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DetailsComponent } from './details/details.component';
 import { InfosComponent } from './infos/infos.component';
@@ -26,7 +18,8 @@ import {RelationshipComponent} from './relationship/relationship.component';
 import {EnterpriseComponent} from './enterprise/enterprise.component';
 import {InvestmentComponent} from './investment/investment.component';
 import {OwnershipComponent} from './ownership/ownership.component';
-import {HttpClientModule} from '@angular/common/http';
+import { SearchForDetailsComponent } from './search-for-details/search-for-details.component';
+
 
 
 
@@ -45,7 +38,8 @@ import {HttpClientModule} from '@angular/common/http';
     OwnershipComponent,
     InvestmentComponent,
     EnterpriseComponent,
-    RelationshipComponent
+    RelationshipComponent,
+    SearchForDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -54,11 +48,6 @@ import {HttpClientModule} from '@angular/common/http';
     HttpModule,
     NgxEchartsModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatAutocompleteModule,
-    FormsModule
-
   ],
   providers: [InfoService,
   DetailService],

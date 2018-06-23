@@ -3,6 +3,8 @@ import {ActivatedRoute,Router} from '@angular/router';
 import { Http,Headers} from '@angular/http';
 import { map } from 'rxjs/operators';
 import { Observable,of} from 'rxjs';
+import * as _ from 'lodash';
+
 @Component({
   selector: 'app-shareholder',
   templateUrl: './shareholder.component.html',
@@ -48,6 +50,9 @@ export class ShareholderComponent implements OnInit {
     else{
     return "-";
     }
+  }
+  holdersFilter(holders){
+  return _.uniqBy(holders,'id');
   }
 
 }
