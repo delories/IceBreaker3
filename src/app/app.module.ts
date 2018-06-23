@@ -1,8 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { polyfill as keyboardEventKeyPolyfill } from 'keyboardevent-key-polyfill';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TextInputAutocompleteModule } from 'angular-text-input-autocomplete';
 import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
 import {Router} from '@angular/router';
@@ -54,8 +52,7 @@ import {OwnershipComponent} from './ownership/ownership.component';
     HttpModule,
     NgxEchartsModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    TextInputAutocompleteModule
+    HttpClientModule
 
   ],
   providers: [InfoService,

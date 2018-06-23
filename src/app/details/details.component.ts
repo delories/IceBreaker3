@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute } from '@angular/router';
-import { Http,Headers} from '@angular/http';
+import { Http, Headers} from '@angular/http';
 import { map } from 'rxjs/operators';
-import { Observable,of} from 'rxjs';
+import { Observable, of} from 'rxjs';
 
 
 @Component({
@@ -12,22 +12,34 @@ import { Observable,of} from 'rxjs';
 })
 export class DetailsComponent implements OnInit {
 
-  public id:string;
-  dataSource:Observable<any>;
-  company:Array<any>=[];
-  detail:Array<any>=[];
+  public id: string;
+  ownershipURL = '';
+  investmentURL = '';
+  enterpriseURL = '';
+  relationshipURL = '';
+  dataSource: Observable<any>;
+  company: Array<any> = [];
+  detail: Array<any> = [];
 
-  constructor(private routeInfo: ActivatedRoute,private http:Http) {
-    let id=this.id=this.routeInfo.snapshot.params["id"];
-    let id_=id.substring(25);
-    this.dataSource=this.http.get('http://115.159.39.220:3444/company/'+id_).pipe(map((res)=>res.json()));
+
+  constructor(private routeInfo: ActivatedRoute, private http: Http) {
+    console.error('window.location.href');
+    console.log(window.location.href);
+    console.log(window.location.href.substring(22));
+    this.ownershipURL = window.location.href.substring(22) + '#ownership';
+    this.investmentURL = window.location.href.substring(22) + '#investment';
+    this.enterpriseURL = window.location.href.substring(22) + '#enterprise';
+    this.relationshipURL = window.location.href.substring(22) + '#relationship';
+    const id = this.id = this.routeInfo.snapshot.params['id'];
+    const id_ = id.substring(25);
+    this.dataSource = this.http.get('http://115.159.39.220:3444/company/' + id_).pipe(map((res) => res.json()));
     }
 
 
   ngOnInit() {
-    this.id=this.routeInfo.snapshot.params["id"];
-    this.dataSource.subscribe((data)=>this.company=data);
-    this.dataSource.subscribe((data)=>this.detail=data);
+    this.id = this.routeInfo.snapshot.params['id'];
+    this.dataSource.subscribe((data) => this.company = data);
+    this.dataSource.subscribe((data) => this.detail = data);
   }
 
 

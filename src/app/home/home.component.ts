@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import 'jquery-ui/ui/widgets/autocomplete.js';
 import * as _ from 'lodash';
 import { Http,Headers} from '@angular/http';
 import { map } from 'rxjs/operators';

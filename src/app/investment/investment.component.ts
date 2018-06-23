@@ -177,9 +177,9 @@ export class InvestmentComponent implements OnInit {
       });
     });
     this.chartOption = option;
-    this.chartOption.on('click', function (params) {
-      window.open('https://www.baidu.com/s?wd=' + encodeURIComponent(params.name));
-    });
+    // this.chartOption.on('click', function (params) {
+    //   window.open('https://www.baidu.com/s?wd=' + encodeURIComponent(params.name));
+    // });
   }
 
 

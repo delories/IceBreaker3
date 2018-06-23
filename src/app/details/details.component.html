@@ -52,12 +52,11 @@
                   <li class="active col-12 col-sm-2 col-md-2 col-lg-2 bold"><a href="#details"
                                                                                data-toggle="tab">基本信息</a></li>
                   <li class="disabled col-12 col-sm-2 col-md-2 col-lg-2"><a href="">关系图形：</a></li>
-                  <li class="col-12 col-sm-2 col-md-2 col-lg-2"><a href="#ownership" data-toggle="tab">股权结构</a></li>
-                  <li class="col-12 col-sm-2 col-md-2 col-lg-2"><a href="#investment" data-toggle="tab">投资族谱</a></li>
-                  <li class="col-12 col-sm-2 col-md-2 col-lg-2"><a href="#enterprise" data-toggle="tab">企业图谱</a></li>
-                  <li class="col-12 col-sm-2 col-md-2 col-lg-2"><a href="#relationship" data-toggle="tab">疑似关系</a></li>
+                  <li class="col-12 col-sm-2 col-md-2 col-lg-2"><a href="{{ownershipURL}}" >股权结构</a></li>
+                  <li class="col-12 col-sm-2 col-md-2 col-lg-2"><a href = "{{investmentURL}}" >投资族谱</a></li>
+                  <li class="col-12 col-sm-2 col-md-2 col-lg-2"><a href= "{{enterpriseURL}}" >企业图谱</a></li>
+                  <li class="col-12 col-sm-2 col-md-2 col-lg-2"><a href= "{{relationshipURL}}" >疑似关系</a></li>
                 </ul>
-
                 <div class="tab-content">
                   <div class="tab-pane fade in active" id="details">
                     <table class="table table-condensed table-bordered table-striped"
@@ -128,29 +127,46 @@
                     <app-main-staff></app-main-staff>
                     <app-the-investment></app-the-investment>
                     <app-shareholder></app-shareholder>
-                  </div>
-
-                  <div class="tab-pane fade" id="ownership">
-                    <app-ownership [id]="id"></app-ownership>
 
                   </div>
 
-                  <div class="tab-pane fade" id="investment">
-                    <app-investment [id]="id"></app-investment>
+                  <div class="tab-pane fade">
+
                   </div>
-                  <div class="tab-pane fade" id="enterprise">
-                    <app-enterprise [id]="id"></app-enterprise>
+
+                  <div class="tab-pane fade" >
+
                   </div>
-                  <div class="tab-pane fade" id="relationship">
+
+                  <div class="tab-pane fade" >
+
                   </div>
+                  <div class="tab-pane fade" >
+
+                  </div>
+                  <div class="tab-pane fade" >
+
+                  </div>
+                  <div class="tab-pane fade" >
+
+                  </div>
+                  <a name="ownership"></a>
+                  <app-ownership [id]="id" ></app-ownership>
+                  <a name="investment"></a>
+                  <app-investment [id]="id"></app-investment>
+                  <a name="enterprise"></a>
+                  <app-enterprise [id]="id"></app-enterprise>
+                  <a name="relationship"></a>
                   <app-relationship [id]="id"></app-relationship>
-                </div>  
+
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-12 col-sm-1 col-md-1 col lg-1"></div>
       </div>
+      <div class="col-12 col-sm-1 col-md-1 col lg-1"></div>
     </div>
   </div>
+</div>
 
