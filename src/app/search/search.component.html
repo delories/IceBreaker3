@@ -14,7 +14,7 @@
                                     </span>
 
                             </div>
-                            <div *ngIf="key.length!=0">
+                            <div *ngIf="key!=null &&key.length!=0">
                             <ul  id="autoInfo" *ngIf="type=='Name'&& autoInfos.length!=0">
         <li *ngFor="let i of chooseAutoKey(autoInfos)"><a (click)="setKey(i.Name)">{{i.Name}}</a></li>
                             </ul>

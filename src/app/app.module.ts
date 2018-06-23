@@ -26,6 +26,7 @@ import {RelationshipComponent} from './relationship/relationship.component';
 import {EnterpriseComponent} from './enterprise/enterprise.component';
 import {InvestmentComponent} from './investment/investment.component';
 import {OwnershipComponent} from './ownership/ownership.component';
+import { SearchForDetailsComponent } from './search-for-details/search-for-details.component';
 
 
 
@@ -45,7 +46,8 @@ import {OwnershipComponent} from './ownership/ownership.component';
     OwnershipComponent,
     InvestmentComponent,
     EnterpriseComponent,
-    RelationshipComponent
+    RelationshipComponent,
+    SearchForDetailsComponent
   ],
   imports: [
     BrowserModule,

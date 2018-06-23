@@ -13,20 +13,19 @@ import { Observable,of} from 'rxjs';
 export class SearchComponent implements OnInit {
   public key:string;
   type="Name";
-dataSource:Observable<any>;
+  dataSource:Observable<any>;
   autoInfos:Array<any>=[];
 
   constructor(private router: Router,private http:Http,private routeInfo: ActivatedRoute) { }
 
   ngOnInit() {
     this.key=this.routeInfo.snapshot.params["key"];
-    this.type=this.routeInfo.snapshot.params["type"];
   }
    showAutoComplete(){
     this.dataSource=this.http.get('http://115.159.39.220:3444/search/'+this.type+'/'+this.key+'/autoprefix').pipe(map((res)=>res.json()));
 
-  this.dataSource.subscribe((data)=>this.autoInfos=data);
-  $("#autoInfo").show();
+    this.dataSource.subscribe((data)=>this.autoInfos=data);
+    $("#autoInfo").show();
   }
   setKey(str){
     this.key=str;
