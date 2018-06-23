@@ -1,6 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';import { AppRoutingModule } from './app-routing.module';
+import { NgModule } from '@angular/core';
+import { polyfill as keyboardEventKeyPolyfill } from 'keyboardevent-key-polyfill';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TextInputAutocompleteModule } from 'angular-text-input-autocomplete';
+import { HttpModule } from '@angular/http';
+import { Routes, RouterModule } from '@angular/router';
+import {Router} from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
+
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DetailsComponent } from './details/details.component';
 import { InfosComponent } from './infos/infos.component';
@@ -18,7 +26,6 @@ import {RelationshipComponent} from './relationship/relationship.component';
 import {EnterpriseComponent} from './enterprise/enterprise.component';
 import {InvestmentComponent} from './investment/investment.component';
 import {OwnershipComponent} from './ownership/ownership.component';
-import { SearchForDetailsComponent } from './search-for-details/search-for-details.component';
 
 
 
@@ -38,16 +45,18 @@ import { SearchForDetailsComponent } from './search-for-details/search-for-detai
     OwnershipComponent,
     InvestmentComponent,
     EnterpriseComponent,
-    RelationshipComponent,
-    SearchForDetailsComponent
+    RelationshipComponent
   ],
   imports: [
     BrowserModule,
-    MatInputModule,
     AppRoutingModule,
+    FormsModule,
     HttpModule,
     NgxEchartsModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    TextInputAutocompleteModule
+
   ],
   providers: [InfoService,
   DetailService],

@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {Router} from '@angular/router';
 import {ActivatedRoute,Router} from '@angular/router';
 import * as _ from 'lodash';
 import { Http,Headers} from '@angular/http';
@@ -14,16 +12,13 @@ import { Observable,of} from 'rxjs';
 })
 export class SearchComponent implements OnInit {
   public key:string;
-
   type="Name";
   dataSource:Observable<any>;
   autoInfos:Array<any>=[];
 
-
   constructor(private router: Router,private http:Http,private routeInfo: ActivatedRoute) { }
 
   ngOnInit() {
-      
     this.key=this.routeInfo.snapshot.params["key"];
   }
    showAutoComplete(){
@@ -69,7 +64,6 @@ export class SearchComponent implements OnInit {
   this.router.navigate(['/infos',key,type]);
   window.location.reload();
   }
-
  setName(){
     this.type="Name";
   }
@@ -79,5 +73,4 @@ export class SearchComponent implements OnInit {
   setProduct(){
   this.type="MainProduct";
   }
-
 }

@@ -13,20 +13,15 @@ import { Observable,of} from 'rxjs';
 })
 export class HomeComponent implements OnInit {
 
- 
   public key:string;
   public type="Name";
   dataSource:Observable<any>;
   autoInfos:Array<any>=[];
-  public type="Name";
   constructor(private router: Router,private http:Http) {
-  
 }
 
   ngOnInit() {
-      
   }
-  	this.router.navigate(['/infos',type,key]);  }
  showAutoComplete(){
     this.dataSource=this.http.get('http://115.159.39.220:3444/search/'+this.type+'/'+this.key+'/autoprefix').pipe(map((res)=>res.json()));
 
@@ -55,41 +50,17 @@ setKey(str){
   let infos=[];
   if(this.type=="BossName"){
     infos=_.uniqBy(sortInfos,'BossName');
-    /*for(var i in infos){
-       var shared = false;
-       for (var j in nullInfos)
-           if (nullInfos[j].BossName == infos[i].BossName) {
-               shared = true;
-               break;
-           }
-      if(!shared) allInfos.push(infos[i])
-    }
-    allInfos = allInfos.concat(infos);*/
   }
   else if(this.type=="Name"){
     infos=_.uniqBy(sortInfos,'Name');
-   /* for(var i in infos){
-   var shared = false;
-   for (var j in nullInfos)
-       if (nullInfos[j].Name == infos[i].Name) {
-           shared = true;
-           break;
-       }
-   if(!shared) allInfos.push(infos[i])
-}
-
-
-
-
-allInfos = allInfos.concat(infos);*/
   }
   else{
-    //let allInfos=sortInfos;
     infos=sortInfos;
   }
     return _.slice(infos,0,11);
   //return _.slice(allInfos,0,11);
   }
+
   toInfos(key:string,type:string){
   	this.router.navigate(['/infos',key,type]);
   }
