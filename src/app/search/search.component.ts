@@ -54,6 +54,9 @@ export class SearchComponent implements OnInit {
   else if(this.type=="Name"){
     infos=_.uniqBy(sortInfos,'Name');
   }
+  else if(this.type=="Region"){
+    infos=_.uniqBy(sortInfos,'Region');
+  }
   else{
     infos=sortInfos;
   }
@@ -72,5 +75,8 @@ export class SearchComponent implements OnInit {
   }
   setProduct(){
   this.type="MainProduct";
+  }
+  setRegion(){
+  this.type="Region";
   }
 }

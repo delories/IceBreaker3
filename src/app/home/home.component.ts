@@ -54,11 +54,13 @@ setKey(str){
   else if(this.type=="Name"){
     infos=_.uniqBy(sortInfos,'Name');
   }
+   else if(this.type=="Region"){
+    infos=_.uniqBy(sortInfos,'Region');
+  }
   else{
     infos=sortInfos;
   }
     return _.slice(infos,0,11);
-  //return _.slice(allInfos,0,11);
   }
 
   toInfos(key:string,type:string){
@@ -72,5 +74,8 @@ setKey(str){
   }
   setProduct(){
   this.type="MainProduct";
+  }
+  setRegion(){
+  this.type="Region";
   }
 }

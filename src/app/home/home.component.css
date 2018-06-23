@@ -1,5 +1,13 @@
-a{color:#ffffff;}
-
+ button:active{
+　　    background:red;
+    }
+    button:focus{
+　　    background:green;
+    }
+a:link{color:#ffffff;}
+a:visited {color:#FF00FF;}  /* 已访问链接 */
+a:hover {color:#ffffff;;text-decoration:underline;}  /* 鼠标移动到链接上 */
+a:active {color:#000000;text-decoration:underline;}
 #content{
     overflow: visible;
     text-align: center;
