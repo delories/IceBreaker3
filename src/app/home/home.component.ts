@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
 }
 
   ngOnInit() {
+   $("#spId").hide(); 
   }
  showAutoComplete(){
     this.dataSource=this.http.get('http://115.159.39.220:3444/search/'+this.type+'/'+this.key+'/autoprefix').pipe(map((res)=>res.json()));
@@ -53,11 +54,13 @@ setKey(str){
   else if(this.type=="Name"){
     infos=_.uniqBy(sortInfos,'Name');
   }
+   else if(this.type=="Region"){
+    infos=_.uniqBy(sortInfos,'Region');
+  }
   else{
     infos=sortInfos;
   }
     return _.slice(infos,0,11);
-  //return _.slice(allInfos,0,11);
   }
 
   toInfos(key:string,type:string){
@@ -65,11 +68,28 @@ setKey(str){
   }
   setName(){
     this.type="Name";
+    $("#spId").text("查公司"); 
+       $("#spId").show(); 
+
   }
   setBossName(){
   this.type="BossName";
+  $("#spId").text("查老板"); 
+     $("#spId").show(); 
+
+
   }
   setProduct(){
   this.type="MainProduct";
+  $("#spId").text("查业务"); 
+     $("#spId").show(); 
+
+
+  }
+  setRegion(){
+  this.type="Region";
+  $("#spId").text("查地区"); 
+ $("#spId").show(); 
+
   }
 }
