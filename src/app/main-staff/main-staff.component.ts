@@ -10,31 +10,24 @@ import * as _ from 'lodash';
   templateUrl: './main-staff.component.html',
   styleUrls: ['./main-staff.component.css']
 })
-
-
-
 export class MainStaffComponent implements OnInit {
-
-
-
   dataSource: Observable<any>;
-
   staff:Array<any>;
-  // staff: Array<staffInterface>;
+  public id:string;
 
-
-  constructor(private routeInfo: ActivatedRoute, private http: Http) {
+  constructor(private routeInfo: ActivatedRoute, private http: Http,private router: Router) {
     let id = this.routeInfo.snapshot.params["id"];
     let id_ = id.substring(25);
     this.dataSource = this.http.get('http://115.159.39.220:3444/relations/0/' + id_).pipe(map((res) => res.json()));
   }
 
   ngOnInit() {
-    this.dataSource.subscribe((data) => this.staff = data);
+  this.id = this.routeInfo.snapshot.params["id"];
+  this.dataSource.subscribe((data) => this.staff = data);
   }
 
   staffFilter(staff) {
-    return _.filter(staff, function (o) {
+    return _.filter(staff,function (o) {
       return _.startsWith(o.value, '0');
     })
   }

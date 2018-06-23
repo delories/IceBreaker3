@@ -6,17 +6,26 @@
                             <li><a (click)="setBossName()">查老板</a></li>
                             <li><a (click)="setProduct()">查业务</a></li>
                         </ol>
-                            <div class="input-group " style="background-color:#ffffff;">
-                                <input class="form-control" [(ngModel)]="key" type=”text” name=”key” id="tags" placeholder="请输入企业名称，人名等其他关键词，多关键词用空格隔开" style="height:40px;" autocomplete="off" (keyup)="showAutoComplete()" (keydown)="hideAutoComplete()"/>
+                            <div class="input-group ">
+                                <input class="form-control" [(ngModel)]="key" name ="key" type="text" id="tags" placeholder="请输入企业名称，人名等其他关键词，多关键词用空格隔开" style="height:40px;" autocomplete="off" (keyup)="showAutoComplete()" (keydown)="hideAutoComplete()"/>
                                  <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button" style="height:40px;font-size-adjust:1.2;font-style: " (click)="toInfos(key,type)">搜索</button>
+                                        <button class="btn btn-default" style="height:40px;font-size-adjust:1.2;color:black; " (click)="toInfos(key,type)">搜索</button>
 
                                     </span>
 
                             </div>
-                            <ul style="background-color:rgba(0,0,0,0);" id="autoInfo">
+                            <div *ngIf="key.length!=0">
+                            <ul  id="autoInfo" *ngIf="type=='Name'&& autoInfos.length!=0">
         <li *ngFor="let i of chooseAutoKey(autoInfos)"><a (click)="setKey(i.Name)">{{i.Name}}</a></li>
                             </ul>
+
+                            <ul  id="autoInfo" *ngIf="type=='BossName' && autoInfos.length!=0">
+                            <li *ngFor="let i of chooseAutoKey(autoInfos)"><a (click)="setKey(i.BossName)">{{i.BossName}}</a></li></ul>
+                            <ul *ngIf="autoInfos.length==0" >
+                                <li>
+                                    <a>Fail to find "{{key}}"</a>
+                                </li>
+                            </ul></div>
                             
                         </form>                
     </div>

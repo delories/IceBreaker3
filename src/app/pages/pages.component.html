@@ -1,5 +1,5 @@
-<div *ngIf="totalPage>=1 && totalNum>0 &&(curPage*3-3)<totalNum">
-                        <div class="card well well-sm " *ngFor="let info of (infosSort(infos) ? infosSort(infos).slice(curPage*3-3,curPage*3): [])">
+<div *ngIf="totalPage>=1 && totalNum>0 &&(curPage*pageSize-pageSize)<totalNum">
+                        <div class="card well well-sm " *ngFor="let info of (infosSort(infos) ? infosSort(infos).slice(curPage*pageSize-pageSize,curPage*pageSize): [])">
                             <div class="card-body ">
                                 <div class="row ">
                                     <div class="col-12 col-sm-2 col-md-2 col-lg-2 ">

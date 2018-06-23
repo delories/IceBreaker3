@@ -23,7 +23,7 @@ export class InfosComponent implements OnInit {
 
   public params; // 保存页面url参数
   public totalNum = 0; // 总数据条数
-  public pageSize = 3;// 每页数据条数
+  public pageSize = 8;// 每页数据条数
   public totalPage :number;// 总页数
   public curPage =1;// 当前页码
 
@@ -69,7 +69,6 @@ states = [
     this.key=this.routeInfo.snapshot.params["key"];
     this.searchType=this.routeInfo.snapshot.params["type"];
     this.dataSource.subscribe((data)=>this.infosNum=data);
-
   }
   //计算总页数
   countPages(totalNum,pageSize){

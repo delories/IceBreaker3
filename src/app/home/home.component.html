@@ -15,17 +15,18 @@
 
                                     </span>
                             </div>
-                            <ul style="background-color:rgba(0,0,0,0.3);" id="autoInfo" *ngIf="type=='Name'&&autoInfos.length!=0">
+                            <div *ngIf="key.length!=0">
+                            <ul style="background-color:rgba(0,0,0,0.3);" id="autoInfo" *ngIf="type=='Name'&& autoInfos.length!=0">
         <li *ngFor="let i of chooseAutoKey(autoInfos)"><a (click)="setKey(i.Name)">{{i.Name}}</a></li>
                             </ul>
 
-                            <ul style="background-color:rgba(0,0,0,0.3);" id="autoInfo" *ngIf="type=='BossName'&&autoInfos.length!=0">
+                            <ul style="background-color:rgba(0,0,0,0.3);" id="autoInfo" *ngIf="type=='BossName' && autoInfos.length!=0">
                             <li *ngFor="let i of chooseAutoKey(autoInfos)"><a (click)="setKey(i.BossName)">{{i.BossName}}</a></li></ul>
-                            <ul *ngIf="autoInfos.length==0&&key.length!=0" style="background-color:rgba(0,0,0,0.3);">
+                            <ul *ngIf="autoInfos.length==0" style="background-color:rgba(0,0,0,0.3);">
                                 <li>
                                     <a>Fail to find "{{key}}"</a>
                                 </li>
-                            </ul>
+                            </ul></div>
                         </form>
             </div>
             <div class="col-12 col-sm-3 col-md-3 col-lg-3"></div>
