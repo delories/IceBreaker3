@@ -2,7 +2,7 @@
             <div class="col-12 col-sm-3 col-md-3 col-lg-3"></div>
             <div class="col-12 col-sm-6 col-md-6 col-lg-6" >
                 <form role="form">
-<ol class="breadcrumb" style="margin:0px;padding:3px 0px 5px 0px;background-color:rgba(0,0,0,0.1);font-size:130%">
+<ol class="breadcrumb" style="margin:0px;padding:3px 0px 5px 0px;background-color:rgba(0,0,0,0);font-size:130%">
                             <li><a (click)="setName()">查公司</a></li>
                             <li><a (click)="setBossName()">查老板</a></li>
                             <li><a (click)="setProduct()">查业务</a></li>
@@ -10,7 +10,7 @@
 
                         </ol>                            <div class="input-group">
                         
-                                <input class="form-control" [(ngModel)]="key" name ="key" type=”text” placeholder="请输入企业名称，人名等其他关键词，多关键词用空格隔开" style="height:45px;" id="text" autocomplete="off" (keyup)="showAutoComplete()" (keydown)="hideAutoComplete()"/>                                <span class="input-group-btn">
+                                <span class="input-group-addon" style="height:45px;color:white;background-color:rgba(0,0,0,0.3);border:none" id="spId"></span><input class="form-control" [(ngModel)]="key" name ="key" type=”text” placeholder="请输关键词，多关键词用空格隔开" style="height:45px;" id="text" autocomplete="off" (keyup)="showAutoComplete()" (keydown)="hideAutoComplete()"/>                                <span class="input-group-btn">
                                                                        <button class="btn btn-default" type="button" style="height:45px;font-size-adjust:1.2" (click)="toInfos(key,type)">Go!</button>
                                     </span>
                             </div>

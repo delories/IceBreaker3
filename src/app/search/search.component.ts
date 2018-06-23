@@ -19,6 +19,7 @@ export class SearchComponent implements OnInit {
   constructor(private router: Router,private http:Http,private routeInfo: ActivatedRoute) { }
 
   ngOnInit() {
+  $("#spId").hide(); 
     this.key=this.routeInfo.snapshot.params["key"];
   }
    showAutoComplete(){
@@ -69,14 +70,28 @@ export class SearchComponent implements OnInit {
   }
  setName(){
     this.type="Name";
+    $("#spId").text("查公司"); 
+       $("#spId").show(); 
+
   }
   setBossName(){
   this.type="BossName";
+  $("#spId").text("查老板"); 
+     $("#spId").show(); 
+
+
   }
   setProduct(){
   this.type="MainProduct";
+  $("#spId").text("查业务"); 
+     $("#spId").show(); 
+
+
   }
   setRegion(){
   this.type="Region";
+  $("#spId").text("查地区"); 
+ $("#spId").show(); 
+
   }
 }

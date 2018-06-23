@@ -1,4 +1,4 @@
-  <nav class="center-block container" style="position:fixed;z-index:99;background:#F2F2F2">
+  <nav class="center-block container" style="position:fixed;z-index:99;background:#Ffffff">
     <div class="row"><br>
                         <form role="form" class="col-12 col-sm-6 col-md-6 col-lg-6 ui-widget">
                             <ol class="breadcrumb" style="margin:0px;padding:3px 0px 0px 0px;background-color:rgba(0,0,0,0);font-size:110%">
@@ -8,7 +8,7 @@
                             <li><a (click)="setRegion()">查地区</a></li>
                         </ol>
                             <div class="input-group ">
-                                <input class="form-control" [(ngModel)]="key" name ="key" type="text" id="tags" placeholder="请输入企业名称，人名等其他关键词，多关键词用空格隔开" style="height:40px;" autocomplete="off" (keyup)="showAutoComplete()" (keydown)="hideAutoComplete()"/>
+                                <span class="input-group-addon" style="height:40px;color:white;background-color:rgba(9,148,218,0.7);border:none" id="spId"></span><input class="form-control" [(ngModel)]="key" name ="key" type="text" id="tags" placeholder="请输入企业名称，人名等其他关键词，多关键词用空格隔开" style="height:40px;" autocomplete="off" (keyup)="showAutoComplete()" (keydown)="hideAutoComplete()"/>
                                  <span class="input-group-btn">
                                         <button class="btn btn-default" style="height:40px;font-size-adjust:1.2;color:black; " (click)="toInfos(key,type)">搜索</button>
 
