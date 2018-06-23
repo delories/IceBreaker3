@@ -49,7 +49,6 @@ export class OwnershipComponent implements OnInit {
 
             console.error('there');
 
-
             newdata.value = parseInt(test);
             newdata.name = data.children[i].name;
             //判别个人股东和企业股东

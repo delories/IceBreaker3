@@ -21,29 +21,91 @@ export class EnterpriseComponent implements OnInit {
     $.ajaxSetup({
       async: false
     });
-    console.warn('warn');
 
     const url1 = baseUrl + '1/' + this.id.substr(25);
     const url2 = baseUrl + '0/' + this.id.substr(25);
-    console.log(url1);
-    console.log(url2);
 
     $.get(url1, function (data1) {
       $.get(url2, function (data2) {
-        console.log(data1);
-        console.log(data2);
-        var investment = {name:"1",children:[]};
-        var shareholder = {name:"1",children:[]};
+        var investment = {name:"",children:[]};
+        var shareholder = {name:"",children:[]};
         var manager = {name:"1",children:[]};
+
+
+        //备份name:id的键值对
+        //...
+        //删除id属性
+        delete data1.id;
+
+        //遍历data1,即为股东信息
+        for (let i = 0; i < data1.children.length; i++) {
+          // var temp1 = data1.children[i];
+          //备份name:id的键值对
+          //...
+          //删除id属性
+          delete data1.children[i].id;
+          if (data1.children[i].children!=[]){
+            for (let j = 0; j < data1.children[i].children.length; j++) {
+              //备份name:id的键值对
+              //...
+              //删除id属性
+              delete data1.children[i].children[j].id;
+              // var temp2 = temp1.children[j];
+              if (data1.children[i].children[j].children!=[]){
+                for (let k = 0; k < data1.children[i].children[j].children.length; k++) {
+                  // var temp3 = temp2.children[k];
+                  //备份name:id的键值对
+                  //...
+                  //删除id属性
+                  delete data1.children[i].children[j].children[k].id;
+                }
+              }
+            }
+          }
+
+        }
+
+        //备份name:id的键值对
+        //...
+        //删除id属性
+        delete data2.id;
+        //遍历data2,即为投资信息
+        for (let i = 0; i < data2.children.length; i++) {
+          // var temp1 = data2.children[i];
+          //备份name:id的键值对
+          //...
+          //删除id属性
+          delete data2.children[i].id;
+          if (data2.children[i].children!=[]){
+            for (let j = 0; j < data2.children[i].children.length; j++) {
+              //备份name:id的键值对
+              //...
+              //删除id属性
+              delete data2.children[i].children[j].id;
+              // var temp2 = temp1.children[j];
+              if (data2.children[i].children[j].children!=[]){
+                for (let k = 0; k < data2.children[i].children[j].children.length; k++) {
+                  // var temp3 = temp2.children[k];
+                  //备份name:id的键值对
+                  //...
+                  //删除id属性
+                  delete data2.children[i].children[j].children[k].id;
+                }
+              }
+            }
+          }
+
+        }
+
         investment.name = "对外投资";
 
         investment.children = data1.children;
         shareholder.name = "股东";
+
         manager.name = "高管";
+
         var array_shareholder = data2.children;
         var array_manager = _.remove(array_shareholder, function (n) {
-          console.error("n");
-          console.error(n);
           let temp = n as {value};      //ok... fine
           return temp.value[0] == '0';
           // return n[0]=='0';
@@ -51,13 +113,15 @@ export class EnterpriseComponent implements OnInit {
         shareholder.children = array_shareholder;
         manager.children = array_manager;
 
-
         var data = {name:"",children:[]};
         data.name = data1.name;
         data.children = [];
         data.children.push(investment);
         data.children.push(shareholder);
         data.children.push(manager);
+
+        console.error("this is enterprise");
+        console.log(data);
 
         option = {
           title: {
