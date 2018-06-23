@@ -24,12 +24,12 @@ export class DetailsComponent implements OnInit {
 
   constructor(private routeInfo: ActivatedRoute, private http: Http) {
     console.error('window.location.href');
-    console.log(window.location.href);
-    console.log(window.location.href.substring(22));
-    this.ownershipURL = window.location.href.substring(22) + '#ownership';
-    this.investmentURL = window.location.href.substring(22) + '#investment';
-    this.enterpriseURL = window.location.href.substring(22) + '#enterprise';
-    this.relationshipURL = window.location.href.substring(22) + '#relationship';
+    // console.log(window.location.href);
+    console.log(window.location.pathname);
+    this.ownershipURL = window.location.pathname + '#ownership';
+    this.investmentURL = window.location.pathname + '#investment';
+    this.enterpriseURL = window.location.pathname + '#enterprise';
+    this.relationshipURL = window.location.pathname + '#relationship';
     const id = this.id = this.routeInfo.snapshot.params['id'];
     const id_ = id.substring(25);
     this.dataSource = this.http.get('http://115.159.39.220:3444/company/' + id_).pipe(map((res) => res.json()));

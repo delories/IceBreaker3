@@ -30,9 +30,11 @@ export class PagesComponent implements OnInit{
   public pageList = [1, 2, 3, 4, 5];
 
   constructor(private http:Http,private routeInfo: ActivatedRoute) {
-           let key=this.routeInfo.snapshot.params["key"];  let searchType=this.routeInfo.snapshot.params["type"];    this.dataSource=this.http.get("http://115.159.39.220:3444/search/"+searchType+'/'+key+"/"+this.totalNum+"/1").pipe(map((res)=>res.json()));  }
+           let key=this.routeInfo.snapshot.params["key"];  let searchType=this.routeInfo.snapshot.params["type"];    this.dataSource=this.http.get("http://115.159.39.220:3444/search/"+searchType+'/'+key+"/"+"40"+"/1").pipe(map((res)=>res.json()));  }
 
   getPageList(pageSize,totalNum,curPage,totalPage) {
+    console.log("SHANSHAN--------------------" + totalNum);
+    totalNum = 8;
     /*分页设置*/
     let pageList=[];
     if (totalPage <= 5) {//如果总的页码数小于5（前五页），那么直接放进数组里显示

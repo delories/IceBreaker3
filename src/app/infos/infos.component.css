@@ -6,13 +6,21 @@
 
 .card {
   background-color: #ffffff;
-  border: solid 1px #f2f2f2;
+
+  border: solid 1px #428bca;
+  /* border-color: #428bca; */
 }
 
 .card:hover {
   box-shadow: 1px 1px 1px 1px #e6e6e6;
 }
 
+.shanshan {
+  background-color: white;
+}
+.select_height {
+  height: 25px;
+}
 label {
   color: #848484;
 }

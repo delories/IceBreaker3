@@ -8,7 +8,18 @@ table {
   font-size: 0.985em;
   border: none;
 }
-
+.shanshan{
+  background-color: white;
+}
+.line{
+  border: solid 1px black;
+}
+.line_above{
+  /* border: solid 0px white; */
+}
+.NameColor{
+  color: mediumblue;
+}
 .noteLabel {
   border: solid;
   border-color: #58D68D;
