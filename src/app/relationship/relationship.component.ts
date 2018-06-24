@@ -158,6 +158,7 @@ export class RelationshipComponent implements OnInit {
             series: [
               {
                 type: 'graph',
+                // layout: 'circular',
                 layout: 'force',
                 symbolSize: 80,
                 focusNodeAdjacency: true,
@@ -167,21 +168,21 @@ export class RelationshipComponent implements OnInit {
                   name: '根',
                   itemStyle: {
                     normal: {
-                      color: "#009800",
+                      color: "#ff9e00",
                     }
                   }
                 }, {
                   name: '自然人',
                   itemStyle: {
                     normal: {
-                      color: "#4592FF",
+                      color: "#fd485e",
                     }
                   }
                 }, {
                   name: '企业',
                   itemStyle: {
                     normal: {
-                      color: "#6222F1",
+                      color: "#4ea2f0",
                     }
                   }
                 }],
