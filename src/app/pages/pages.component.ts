@@ -1,11 +1,11 @@
-import { Component,Input, Output,EventEmitter,OnInit } from '@angular/core';
-import {ActivatedRoute,Router} from '@angular/router';
-import { Http,Headers} from '@angular/http';
-import { map } from 'rxjs/operators';
-import { Observable,of} from 'rxjs';
-import { Info } from '../shared/info.service';
-import { PageParams } from '../shared/info.service';
-import { InfosService } from '../shared/infos.service';
+import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Http, Headers} from '@angular/http';
+import {map} from 'rxjs/operators';
+import {Observable, of} from 'rxjs';
+import {Info} from '../shared/info.service';
+import {PageParams} from '../shared/info.service';
+import {InfosService} from '../shared/infos.service';
 import * as _ from 'lodash';
 
 @Component({
@@ -13,28 +13,35 @@ import * as _ from 'lodash';
   templateUrl: './pages.component.html',
   styleUrls: ['./pages.component.css']
 })
-export class PagesComponent implements OnInit{
-  dataSource:Observable<any>;
-  infos:Array<any>=[];
+export class PagesComponent implements OnInit {
+  dataSource: Observable<any>;
+  infos: Array<any> = [];
 
-  @Input('key') key:string;
-@Input('searchType') searchType:string;  @Input('pageSize') pageSize:number;
-  @Input('totalNum') totalNum:number;
-  @Input('curPage') curPage:number;
-  @Input('totalPage') totalPage:number;
-  @Input('sortKey') sortKey:string;
-  @Input('sortOrder') sortOrder:string;
+  @Input('key') key: string;
+  @Input('searchType') searchType: string;
+  @Input('pageSize') pageSize: number;
+  @Input('totalNum') totalNum: number;
+  @Input('curPage') curPage: number;
+  @Input('totalPage') totalPage: number;
+  @Input('sortKey') sortKey: string;
+  @Input('sortOrder') sortOrder: string;
 
   // 父组件向子组件传值
-  @Output() changeCurPage:EventEmitter<Number> = new EventEmitter;// 子组件向父组件广播事件，触发改变当前页面的事件
+  @Output() changeCurPage: EventEmitter<Number> = new EventEmitter;// 子组件向父组件广播事件，触发改变当前页面的事件
   public pageList = [1, 2, 3, 4, 5];
 
-  constructor(private http:Http,private routeInfo: ActivatedRoute) {
-           let key=this.routeInfo.snapshot.params["key"];  let searchType=this.routeInfo.snapshot.params["type"];    this.dataSource=this.http.get("http://115.159.39.220:3444/search/"+searchType+'/'+key+"/"+this.totalNum+"/1").pipe(map((res)=>res.json()));  }
+  constructor(private http: Http, private routeInfo: ActivatedRoute) {
+    let key = this.routeInfo.snapshot.params["key"];
+    let searchType = this.routeInfo.snapshot.params["type"];
+    console.error("url");
+    let url = "http://115.159.39.220:3444/search/" + searchType + '/' + key + "/" + "16" + "/1";
+    console.log(url);
+    this.dataSource = this.http.get(url).pipe(map((res) => res.json()));
+  }
 
-  getPageList(pageSize,totalNum,curPage,totalPage) {
+  getPageList(pageSize, totalNum, curPage, totalPage) {
     /*分页设置*/
-    let pageList=[];
+    let pageList = [];
     if (totalPage <= 5) {//如果总的页码数小于5（前五页），那么直接放进数组里显示
       for (let i = 0; i < totalPage; i++) {
         pageList.push({
@@ -76,30 +83,32 @@ export class PagesComponent implements OnInit{
 
   changePage(pageNo) {
     let vm = this;
-    //console.log('修改页码', pageNo);
     this.curPage = pageNo;
     vm.changeCurPage.emit(this.curPage);
   }
+
   ngOnInit() {
-    this.dataSource.subscribe((data)=>this.infos=data);
+    this.dataSource.subscribe((data) => this.infos = data);
 
   }
-  mainProductLimit(str:string,lenn:number){
-    if(str.length<=lenn){
-    return str;
+
+  mainProductLimit(str: string, lenn: number) {
+    if (str.length <= lenn) {
+      return str;
     }
-    else{
-    return str.substring(0,lenn)+"...";
+    else {
+      return str.substring(0, lenn) + "...";
     }
   }
-  infosSort(infos){
-    if(this.sortKey=="RegisterMoney"){
+
+  infosSort(infos) {
+    if (this.sortKey == "RegisterMoney") {
       return _.orderBy(infos, ['RegisterMoney'], [this.sortOrder]);
     }
-    else if(this.sortKey=="RegisterDate"){
+    else if (this.sortKey == "RegisterDate") {
       return _.orderBy(infos, ['RegisterDate'], [this.sortOrder]);
     }
-    else{
+    else {
       return infos;
     }
   }
