@@ -33,10 +33,6 @@
                         </div>
             </div>          <div class="col-md-12 text-right margin-bottom" *ngIf="totalPage>=1 && totalNum>0">
   <a class="pull-left text-sm">总计 {{totalNum}} 条，第 {{curPage}} / {{totalPage}} 页</a>
-
-
-
-
                   <ul class="pagination">
                                 <li class="page-item">
                                     <a class="page-link" aria-label="Previous">
@@ -58,7 +54,7 @@
                               <li class="page-item"><a class="page-link">
   <button class="btn btn-default previous" [routerLink]="['./']" [disabled]="totalPage-curPage<=5"
           (click)="changePage(curPage-(-5))" [queryParams]="{pageNo:curPage-(-5)}">>></button></a></li>
-                               
+
                             </ul>
 
 </div>

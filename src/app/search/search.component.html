@@ -8,7 +8,8 @@
                             <li><a (click)="setRegion()">查地区</a></li>
                         </ol>
                             <div class="input-group ">
-                                <span class="input-group-addon" style="height:40px;color:white;background-color:rgba(9,148,218,0.7);border:none" id="spId"></span><input class="form-control" [(ngModel)]="key" name ="key" type="text" id="tags" placeholder="请输入企业名称，人名等其他关键词，多关键词用空格隔开" style="height:40px;" autocomplete="off" (keyup)="showAutoComplete()" (keydown)="hideAutoComplete()"/>
+                                <span class="input-group-addon" style="height:40px;color:white;background-color:rgba(9,148,218,0.7);border:none" id="spId"></span>
+                                <input class="form-control" [(ngModel)]="key" name ="key" type="text" id="tags" placeholder="请输入企业名称，人名等其他关键词，多关键词用空格隔开" style="height:40px;" autocomplete="off" (keyup)="showAutoComplete()" (keydown)="hideAutoComplete()"/>
                                  <span class="input-group-btn">
                                         <button class="btn btn-default" style="height:40px;font-size-adjust:1.2;color:black; " (click)="toInfos(key,type)">搜索</button>
 

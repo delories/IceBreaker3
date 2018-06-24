@@ -8,7 +8,9 @@ table {
   font-size: 0.985em;
   border: none;
 }
-
+.manager{
+  background-color: whitesmoke;
+}
 .noteLabel {
   border: solid;
   border-color: #58D68D;
