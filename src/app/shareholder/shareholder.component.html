@@ -19,7 +19,7 @@
       </thead>
      <tbody>
                           <tr *ngFor="let hoder of holdersFilter(hoders.children)">
-                            <td><a href="">{{hoder.name}}</a></td>
+                            <td><a (click)="toTheCompany(hoder.id)">{{hoder.name}}</a></td>
                             <td><a href="">
                               {{hoder.detail[0].BossName}}
                             </a></td>

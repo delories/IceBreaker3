@@ -14,7 +14,7 @@ export class TheInvestmentComponent implements OnInit {
    dataSource:Observable<any>;
    investments:Array<any>=[];
 
-  constructor(private routeInfo: ActivatedRoute,private http:Http) { 
+  constructor(private routeInfo: ActivatedRoute,private http:Http,private router: Router) { 
   	let id=this.routeInfo.snapshot.params["id"];
   	let id_=id.substring(25);
 	this.dataSource=this.http.get('http://115.159.39.220:3444/relations/0/'+id_).pipe(map((res)=>res.json()));
@@ -37,6 +37,10 @@ export class TheInvestmentComponent implements OnInit {
     else{
     return str;
     }
+  }
+  toTheCompany(str){
+  this.router.navigate(['/details',str]);
+  window.location.reload();
   }
 
 

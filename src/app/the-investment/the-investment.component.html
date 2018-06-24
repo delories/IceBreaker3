@@ -18,7 +18,7 @@
                           </thead>
                           <tbody *ngFor="let i of (holdersFilter(investments.children))">
                           <tr>
-                            <td><a href=""><a href=""><p>{{i.name}}</p></a></a>
+                            <td><a (click)="toTheCompany(i.id)"><p>{{i.name}}</p></a>
                             </td>
                             <td>
                               <p>{{i.value.substring(1,i.value.indexOf("%")+1)}}</p>
