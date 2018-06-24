@@ -33,7 +33,7 @@ export class PagesComponent implements OnInit {
   constructor(private http:Http,private routeInfo: ActivatedRoute) {
            let key=this.routeInfo.snapshot.params["key"];
            let searchType=this.routeInfo.snapshot.params["type"];
-           this.dataSource=this.http.get("http://115.159.39.220:3444/search/"+searchType+'/'+key+"/"+"32"+"/1").pipe(map((res)=>res.json()));  }
+           this.dataSource=this.http.get("http://115.159.39.220:3444/search/"+searchType+'/'+key+"/"+"16"+"/1").pipe(map((res)=>res.json()));  }
 
 
   getPageList(pageSize, totalNum, curPage, totalPage) {
