@@ -23,10 +23,13 @@ export class DetailsComponent implements OnInit {
 
 
   constructor(private routeInfo: ActivatedRoute, private http: Http) {
-    this.ownershipURL = window.location.pathname + '#ownership';
+
+    console.log(window.location.pathname);    this.ownershipURL = window.location.pathname + '#ownership';
     this.investmentURL = window.location.pathname + '#investment';
     this.enterpriseURL = window.location.pathname + '#enterprise';
     this.relationshipURL = window.location.pathname + '#relationship';
+
+
     const id = this.id = this.routeInfo.snapshot.params['id'];
     const id_ = id.substring(25);
     this.dataSource = this.http.get('http://115.159.39.220:3444/company/' + id_).pipe(map((res) => res.json()));

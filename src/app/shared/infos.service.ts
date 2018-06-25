@@ -7,8 +7,7 @@ export class InfosService {
 public key:string;
 public pageSize:number;
 public curPage:number;
-  constructor(key:string,pageSize:number,curPage:number
-  ){
+  constructor(key:string,pageSize:number,curPage:number){
 this.key=key;
 this.pageSize=pageSize;
 this.curPage=curPage;
