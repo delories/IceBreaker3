@@ -20,16 +20,21 @@
      <tbody>
                           <tr *ngFor="let hoder of holdersFilter(hoders.children)">
                             <td><a (click)="toTheCompany(hoder.id)">{{hoder.name}}</a></td>
-                            <td><a href="">
-                              {{hoder.detail[0].BossName}}
+                            <td><a *ngIf="hoder.detail[0]!=null">
+                             {{hoder.detail[0].BossName}}
+                            </a>
+                            <a *ngIf="hoder.detail[0]==null">
+                             -
                             </a></td>
-                            <td>{{hoder.detail[0].RegisterMoney}}</td>
+                            <td><p *ngIf="hoder.detail[0]!=null">{{hoder.detail[0].RegisterMoney}}</p>
+                              <p *ngIf="hoder.detail[0]==null">-</p></td>
+
                             <td>{{moneyStringMatch(hoder.value.substring(hoder.value.indexOf("%")+2))}}</td>
                             <td>{{moneyMatch(hoder.value.substring(1,hoder.value.indexOf("%")+1))}}</td>
-                            <td>{{hoder.detail[0].RegisterDate}}</td>
-                            <td>{{hoder.detail[0].State}}</td>
+                            <td><p *ngIf="hoder.detail[0]!=null">{{hoder.detail[0].RegisterDate}}</p><p *ngIf="hoder.detail[0]==null">-</p></td>
+                            <td><p *ngIf="hoder.detail[0]!=null">{{hoder.detail[0].State}}</p>
+                              <p *ngIf="hoder.detail[0]==null">-</p></td>
                           </tr>
-                          
                           </tbody>
     </table>
   </div>
