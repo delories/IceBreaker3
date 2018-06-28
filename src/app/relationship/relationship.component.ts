@@ -1,7 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import * as $ from 'jquery';
 import {HttpClient} from '@angular/common/http';
-import {getUrlScheme} from "@angular/compiler";
 
 @Component({
   selector: 'app-relationship',
@@ -23,7 +21,9 @@ export class RelationshipComponent implements OnInit {
   constructor(private httpClient: HttpClient) {
   }
 
-  getProfile(url: string) {
+  getProfile(mode: string) {
+    var baseUrl = 'http://115.159.39.220:3444/relations/01/map/';
+    var url = baseUrl + this.id.substr(25);
     this.httpClient.get(url)
       .subscribe(
         (data1: any[]) => {
@@ -108,16 +108,34 @@ export class RelationshipComponent implements OnInit {
 
           //处理边
           for (var i = 0; i < data1.length; i++) {
-            var temp1 = {source: "", target: "", value: ""};
+            var temp1 = {source: "", target: "", value: "", lineStyle: {}};
             temp1.source = data1[i].fromName;
             temp1.target = data1[i].toName;
             if (data1[i].value[0] == "1") {
               temp1.value = "投资";
-            } else
+              temp1.lineStyle = {
+                normal: {
+                  opacity: 0.9,
+                  width: 1,
+                  curveness: 0,
+                  color: '#52a4f0'
+                }
+              };
+            } else {
+              temp1.lineStyle = {
+                normal: {
+                  opacity: 0.9,
+                  width: 1,
+                  curveness: 0,
+                  color: '#fd485e'
+                }
+              };
               temp1.value = data1[i].value.substring(1);
+            }
+
             link.push(temp1);
           }
-          console.log(link);
+          console.log();
 
           this.chartOption  = {
             title: {
@@ -155,11 +173,14 @@ export class RelationshipComponent implements OnInit {
                 saveAsImage: {show: true}
               }
             },
+            // lineStyle:{
+            //   color: '#123456'
+            // },
             series: [
               {
                 type: 'graph',
                 // layout: 'circular',
-                layout: 'force',
+                layout: mode,
                 symbolSize: 80,
                 focusNodeAdjacency: true,
                 roam: true,
@@ -209,13 +230,14 @@ export class RelationshipComponent implements OnInit {
                 },
                 data: data,
                 links: link,
-                lineStyle: {
-                  normal: {
-                    opacity: 0.9,
-                    width: 1,
-                    curveness: 0
-                  }
-                }
+                // lineStyle: {
+                //   normal: {
+                //     opacity: 0.9,
+                //     width: 1,
+                //     curveness: 0,
+                //     color: '#000000';
+                //   }
+                // }
               }
             ]
           };
@@ -226,9 +248,19 @@ export class RelationshipComponent implements OnInit {
 
 
   ngOnInit() {
-    var baseUrl = 'http://115.159.39.220:3444/relations/01/map/';
-    var url = baseUrl + this.id.substr(25);
-    this.getProfile(url);
+
+    // this.draw("force");
+    this.getProfile('force');
+  }
+
+  selectChangeHandler(event: any) {
+    // console.log(event.target.value);
+    if(event.target.value == 1){
+      this.getProfile("force");
+    }else if(event.target.value == 2){
+      this.getProfile("circular");
+    }
+
   }
 
 }

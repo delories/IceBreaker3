@@ -40,15 +40,8 @@ export class OwnershipComponent implements OnInit {
         if (data.children[i].value[0] === '1') {
           if (dot.indexOf(data.children[i].name) == -1) {
             dot.push(data.children[i].name);
-            const reg = /\d+(\.\d+)?/;
-            const test = data.children[i].value.match(reg);
-
-            console.error('here');
-
+            const test = data.children[i].value.substring(data.children[i].value.indexOf("%")+2);
             var newdata={value:0, name:"0"};
-
-            console.error('there');
-
             newdata.value = parseInt(test);
             newdata.name = data.children[i].name;
             //判别个人股东和企业股东
@@ -147,9 +140,7 @@ export class OwnershipComponent implements OnInit {
               }
             }
           }
-
         }
-
         ]
       };
     });

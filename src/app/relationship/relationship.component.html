@@ -1,1 +1,6 @@
+<h2><span>请选择布局方式：</span></h2>
+<select class="form-control" (change)="selectChangeHandler($event)">
+  <option value=1>布局1</option>
+  <option value=2>布局2</option>
+</select>
 <div echarts [options]="chartOption" class="demo-chart"></div>

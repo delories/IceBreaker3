@@ -30,8 +30,6 @@ export class InvestmentComponent implements OnInit {
 
 
     let option = {};
-    // let option = {series: {}, title: { text: string }, tooltip: { trigger="", triggerOn=""}};
-    // let option = {series: {}, title: {  }, tooltip: { }};
     const baseUrl = 'http://115.159.39.220:3444/relations/';
 
     $.ajaxSetup({
@@ -177,20 +175,11 @@ export class InvestmentComponent implements OnInit {
       });
     });
     this.chartOption = option;
-    // this.chartOption.on('click', function (params) {
-    //   window.open('https://www.baidu.com/s?wd=' + encodeURIComponent(params.name));
-    // });
   }
 
 
   selectChangeHandler(event: any) {
-    // option.series.initialTreeDepth = event.target.value;
-    // this.chartOption = option;
     console.log(event.target.value);
-    // var temp = this.chartOption;
-    // temp.series.initialTreeDepth=1;
-    // this.chartOption.series.initialTreeDepth = event.target.value;
-    // this.chartOption=temp;
     this.draw(event.target.value);
   }
 }
