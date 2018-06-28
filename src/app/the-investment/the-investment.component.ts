@@ -21,7 +21,6 @@ export class TheInvestmentComponent implements OnInit {
     console.error("this.dataSource");
     console.log("http://115.159.39.220:3444/relations/0/" + id_);
   }
-
   ngOnInit() {
     this.dataSource.subscribe((data) => this.investments = data);
   }
@@ -43,4 +42,7 @@ export class TheInvestmentComponent implements OnInit {
       return str;
     }
   }
-}
+  toTheCompany(str){
+  this.router.navigate(['/details',str]);
+  window.location.reload();
+  }}

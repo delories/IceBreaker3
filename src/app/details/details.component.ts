@@ -23,8 +23,8 @@ export class DetailsComponent implements OnInit {
 
 
   constructor(private routeInfo: ActivatedRoute, private http: Http) {
-    console.log(window.location.pathname);
-    this.ownershipURL = window.location.pathname + '#ownership';
+
+    console.log(window.location.pathname);    this.ownershipURL = window.location.pathname + '#ownership';
     this.investmentURL = window.location.pathname + '#investment';
     this.enterpriseURL = window.location.pathname + '#enterprise';
     this.relationshipURL = window.location.pathname + '#relationship';
