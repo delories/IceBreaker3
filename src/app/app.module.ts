@@ -54,8 +54,9 @@ import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 
   ],
   providers: [InfoService,
-    DetailService,
-    {provide: LocationStrategy, useClass: HashLocationStrategy}],
+    DetailService
+    // {provide: LocationStrategy, useClass: HashLocationStrategy}
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
