@@ -26,6 +26,7 @@ import {InvestmentComponent} from './investment/investment.component';
 import {OwnershipComponent} from './ownership/ownership.component';
 import {HashLocationStrategy} from "@angular/common";
 import {LocationStrategy} from "@angular/common";
+import { InfosShowComponent } from './infos-show/infos-show.component';
 
 @Injectable()
 export class WindowWrapper extends Window {
@@ -48,7 +49,8 @@ export function getWindow() { return window; }
     OwnershipComponent,
     InvestmentComponent,
     EnterpriseComponent,
-    RelationshipComponent
+    RelationshipComponent,
+    InfosShowComponent
   ],
   imports: [
     BrowserModule,

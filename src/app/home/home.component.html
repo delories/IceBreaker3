@@ -15,7 +15,7 @@
                                                                        <button class="btn btn-default" type="button" style="height:45px;font-size-adjust:1.2" (click)="toInfos(key,type)">搜索</button>
                                     </span>
                             </div>
-<div *ngIf="key.length!=0">
+<div *ngIf="this.key.length!=0">
                             <ul style="background-color:rgba(0,0,0,0.3);" id="autoInfo" *ngIf="type=='Name'&& autoInfos.length!=0">
         <li *ngFor="let i of chooseAutoKey(autoInfos)"><a (click)="setKey(i.Name)">{{i.Name}}</a></li>
                             </ul>                            <ul style="background-color:rgba(0,0,0,0.3);" id="autoInfo" *ngIf="type=='BossName' && autoInfos.length!=0">

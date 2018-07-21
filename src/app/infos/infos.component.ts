@@ -14,7 +14,8 @@ import {FormControl, FormGroup} from '@angular/forms';
 })
 export class InfosComponent implements OnInit {
   public key:string;
- public searchType:string;  dataSource:Observable<any>;
+ public searchType:string;  
+ dataSource:Observable<any>;
   infosNum:Array<any>=[];  public params; // 保存页面url参数
   public totalNum = 0; // 总数据条数
 
@@ -34,7 +35,9 @@ states = [
   constructor(location:Location,private routeInfo: ActivatedRoute,private http:Http,private router: Router) {
 let key=this.key=this.routeInfo.snapshot.params["key"];
     let searchType=this.searchType=this.routeInfo.snapshot.params["type"];
-    this.dataSource=this.http.get('http://139.196.101.226:3444/search/'+searchType+'/'+key+'/num').pipe(map((res)=>res.json()));    let vm = this;
+    this.dataSource=this.http.get('http://139.196.101.226:3444/search/'+searchType+'/'+key+'/num').pipe(map((res)=>res.json()));
+
+     let vm = this;
     if (vm.params) {
       vm.params = vm.params.replace('?', '').split('&');
       let theRequest = [];
@@ -59,8 +62,9 @@ let key=this.key=this.routeInfo.snapshot.params["key"];
   }
 
   ngOnInit() {
-    this.key=this.routeInfo.snapshot.params["key"];
-this.searchType=this.routeInfo.snapshot.params["type"];    this.dataSource.subscribe((data)=>this.infosNum=data);
+this.key=this.routeInfo.snapshot.params["key"];
+this.searchType=this.routeInfo.snapshot.params["type"];   
+this.dataSource.subscribe((data)=>this.infosNum=data);
   }
   //计算总页数
   countPages(totalNum,pageSize){
