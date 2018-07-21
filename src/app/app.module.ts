@@ -1,9 +1,11 @@
+import { Injectable } from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule} from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
-import {Routes, RouterModule} from '@angular/router';
-import {Router} from '@angular/router';
+import {Routes} from '@angular/router';
+import {RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -13,8 +15,6 @@ import {InfosComponent} from './infos/infos.component';
 import {HomeComponent} from './home/home.component';
 import {SearchComponent} from './search/search.component';
 import {PagesComponent} from './pages/pages.component';
-import {InfoService} from './shared/info.service';
-import {DetailService} from './shared/detail.service';
 
 import {NgxEchartsModule} from 'ngx-echarts';
 import {MainStaffComponent} from './main-staff/main-staff.component';
@@ -24,8 +24,15 @@ import {RelationshipComponent} from './relationship/relationship.component';
 import {EnterpriseComponent} from './enterprise/enterprise.component';
 import {InvestmentComponent} from './investment/investment.component';
 import {OwnershipComponent} from './ownership/ownership.component';
-import {HashLocationStrategy, LocationStrategy} from "@angular/common";
+import {HashLocationStrategy} from "@angular/common";
+import {LocationStrategy} from "@angular/common";
 
+@Injectable()
+export class WindowWrapper extends Window {
+
+}
+
+export function getWindow() { return window; }
 
 @NgModule({
   declarations: [
@@ -51,13 +58,13 @@ import {HashLocationStrategy, LocationStrategy} from "@angular/common";
     NgxEchartsModule,
     ReactiveFormsModule,
     HttpClientModule
-
   ],
-  providers: [InfoService,
-    DetailService
-    // {provide: LocationStrategy, useClass: HashLocationStrategy}
+  providers: [{provide: WindowWrapper, useFactory: getWindow}
     ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
+constructor(w: WindowWrapper) {
+    console.log(w);
+  }
 }

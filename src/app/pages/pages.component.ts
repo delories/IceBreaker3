@@ -3,7 +3,6 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Http, Headers} from '@angular/http';
 import {map} from 'rxjs/operators';
 import {Observable, of} from 'rxjs';
-import {Info} from '../shared/info.service';
 import {PageParams} from '../shared/info.service';
 import {InfosService} from '../shared/infos.service';
 import * as _ from 'lodash';
@@ -33,7 +32,9 @@ export class PagesComponent implements OnInit {
   constructor(private http:Http,private routeInfo: ActivatedRoute) {
            let key=this.routeInfo.snapshot.params["key"];
            let searchType=this.routeInfo.snapshot.params["type"];
-           this.dataSource=this.http.get("http://115.159.39.220:3444/search/"+searchType+'/'+key+"/"+"16"+"/1").pipe(map((res)=>res.json()));  }
+          let totalNum=this.routeInfo.snapshot.params["totalNum"];
+           let curPage=this.routeInfo.snapshot.params["curPage"];
+           this.dataSource=this.http.get("http://139.196.101.226:3444/search/"+searchType+'/'+key+"/"+totalNum+"/"+curPage).pipe(map((res)=>res.json()));  }
 
 
   getPageList(pageSize, totalNum, curPage, totalPage) {

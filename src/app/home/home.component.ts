@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   $("#spId").show();
   }
  showAutoComplete(){
-    this.dataSource=this.http.get('http://115.159.39.220:3444/search/'+this.type+'/'+this.key+'/autoprefix').pipe(map((res)=>res.json()));
+    this.dataSource=this.http.get('http://139.196.101.226:3444/search/'+this.type+'/'+this.key+'/autoprefix').pipe(map((res)=>res.json()));
 
   this.dataSource.subscribe((data)=>this.autoInfos=data);
   $("#autoInfo").show();

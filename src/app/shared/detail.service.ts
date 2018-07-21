@@ -16,3 +16,9 @@ export class Detail{
 	
 	}
 }
+export class relation{
+
+	constructor(public id:string,public value:string,public name:string,public children:string){
+	
+	}
+}

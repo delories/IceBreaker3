@@ -16,7 +16,7 @@ export class EnterpriseComponent implements OnInit {
 
   ngOnInit() {
     let option = {};
-    const baseUrl = 'http://115.159.39.220:3444/relations/';
+    const baseUrl = 'http://139.196.101.226:3444/relations/';
 
     $.ajaxSetup({
       async: false
@@ -120,8 +120,7 @@ export class EnterpriseComponent implements OnInit {
         data.children.push(shareholder);
         data.children.push(manager);
 
-        console.error("this is enterprise");
-        console.log(data);
+      
 
         option = {
           title: {
