@@ -12,7 +12,7 @@ import * as _ from 'lodash';
   templateUrl: './infos-show.component.html',
   styleUrls: ['./infos-show.component.css']
 })
-export class InfosShowComponent implements OnChanges{
+export class InfosShowComponent implements OnChanges,OnInit{
   @Input('curPage') curPage:number;
   dataSource: Observable<any>;
   infos: Array<any> = [];
@@ -21,10 +21,17 @@ export class InfosShowComponent implements OnChanges{
   @Input('pageSize') pageSize: number;
   @Input('sortKey') sortKey:string;
   @Input('sortOrder') sortOrder:string;
+  public page:string;
 
   constructor(private http:Http,private routeInfo: ActivatedRoute) {
+
 }
   ngOnChanges(changes: SimpleChanges) {
+  this.dataSource=this.http.get('http://139.196.101.226:3444/search/'+this.searchType+'/'+this.key+'/8/'+this.curPage).pipe(map((res)=>res.json()));
+   this.dataSource.subscribe((data) => this.infos = data);
+  }
+  ngOnInit() {
+  this.page=this.routeInfo.snapshot.params['curPage'];
   this.dataSource=this.http.get('http://139.196.101.226:3444/search/'+this.searchType+'/'+this.key+'/8/'+this.curPage).pipe(map((res)=>res.json()));
    this.dataSource.subscribe((data) => this.infos = data);
   }

@@ -86,6 +86,7 @@ export class SearchComponent implements OnInit {
   $("#spId").text("查地区");
   }
   goBack() {
+  
    window.history.back();
                     
   }
