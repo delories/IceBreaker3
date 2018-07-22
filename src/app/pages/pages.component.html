@@ -1,7 +1,7 @@
 
 
 <div *ngIf="totalPage>=1 && totalNum>0 &&(curPage*pageSize-pageSize)<totalNum">
-                            <router-outlet [pageSize]="8" [key]='[key]' [searchType]='[searchType]' [sortKey]='[sortKey]' [sortOrder]='[sortOrder]' [curPage]='[curPage]'>
+                            
                             <router-outlet>
           <app-infos-show [pageSize]="8" [key]='[key]' [searchType]='[searchType]' [sortKey]='[sortKey]' [sortOrder]='[sortOrder]' [curPage]='[curPage]'></app-infos-show>
                         </router-outlet>
