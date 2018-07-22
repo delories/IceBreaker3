@@ -27,6 +27,8 @@ import {OwnershipComponent} from './ownership/ownership.component';
 import {HashLocationStrategy} from "@angular/common";
 import {LocationStrategy} from "@angular/common";
 import { InfosShowComponent } from './infos-show/infos-show.component';
+import { RouterModule } from '@angular/router';
+
 
 @Injectable()
 export class WindowWrapper extends Window {
