@@ -39,7 +39,22 @@ mainProductLimit(str: string, lenn: number) {
 
   infosSort(infos) {
     if (this.sortKey == "RegisterMoney") {
-      return _.orderBy(infos, ['RegisterMoney'], [this.sortOrder]);
+     for(let i=0;i<infos.length;i++){
+     let str=_.get(infos[i],'RegisterMoney');
+     let number;
+     if(str=="-"){
+number=0;
+     }
+     else if(str.indexOf("万")!=-1){
+     let nn=_.parseInt(str);
+     number=nn*10000;
+     }
+     else{
+     number=_.parseInt(str);}
+      _.set(infos[i],'money',number);
+       
+     }
+      return _.orderBy(infos, ['money'], [this.sortOrder]);
     }
     else if (this.sortKey == "RegisterDate") {
       return _.orderBy(infos, ['RegisterDate'], [this.sortOrder]);
