@@ -16,6 +16,8 @@ import * as _ from 'lodash';
 export class PagesComponent implements OnInit {
   dataSource: Observable<any>;
   infos: Array<any> = [];
+  @Input('key') key:string;
+  @Input('searchType') searchType:string;
   @Input('pageSize') pageSize: number;
   @Input('totalNum') totalNum: number;
   @Input('curPage') curPage: number;

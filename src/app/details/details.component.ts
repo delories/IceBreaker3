@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Location} from '@angular/common';
 import {ActivatedRoute } from '@angular/router';
 import { Http, Headers} from '@angular/http';
 import { map } from 'rxjs/operators';

@@ -4,6 +4,7 @@ import * as _ from 'lodash';
 import { Http,Headers} from '@angular/http';
 import { map } from 'rxjs/operators';
 import { Observable,of} from 'rxjs';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-search',
@@ -16,7 +17,7 @@ export class SearchComponent implements OnInit {
   dataSource:Observable<any>;
   autoInfos:Array<any>=[];
 
-  constructor(private router: Router,private http:Http,private routeInfo: ActivatedRoute) { }
+  constructor(private router: Router,private http:Http,private routeInfo: ActivatedRoute,private location: Location) { }
 
   ngOnInit() {
     $("#spId").text("查公司");
@@ -83,5 +84,11 @@ export class SearchComponent implements OnInit {
   setRegion(){
   this.type="Region";
   $("#spId").text("查地区");
+  }
+  goBack() {
+   //this.location.back();
+   //window.location.reload(history.go(-2));
+   window.history.back();
+                    
   }
 }

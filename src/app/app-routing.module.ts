@@ -11,7 +11,7 @@ const routes: Routes = [
 {path:' ',redirectTo:'/home',pathMatch:'full'},
 {path:'home',component:HomeComponent},
 {path:'infos/:key/:type',component:InfosComponent,children:[
-	{path:'page/:curPage/:sortKey/:sortOrder',component:InfosShowComponent}
+	{path:'page/:curPage',component:InfosShowComponent}
 ]},
 {path:'details/:id',component:DetailsComponent},
 {path:'**',component:HomeComponent}];

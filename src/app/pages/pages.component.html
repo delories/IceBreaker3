@@ -1,6 +1,7 @@
 <div *ngIf="totalPage>=1 && totalNum>0 &&(curPage*pageSize-pageSize)<totalNum">
-
-                        
+                            <router-outlet>
+          <app-infos-show [pageSize]="8" [key]='[key]' [searchType]='[searchType]' [sortKey]='[sortKey]' [sortOrder]='[sortOrder]' [curPage]='[curPage]'></app-infos-show>
+                        </router-outlet>
             </div>          <div class="col-md-12 text-right margin-bottom" *ngIf="totalPage>=1 && totalNum>0">
   <a class="pull-left text-sm">总计 {{totalNum}} 条，第 {{curPage}} / {{totalPage}} 页</a>
                   <ul class="pagination">
@@ -10,15 +11,15 @@
           (click)="changePage(curPage-5)" [queryParams]="{pageNo:curPage-5}"><<</button>
                                     </a>
                                 </li>
-                                <li class="page-item"><a class="page-link"> <button class="btn btn-default next" [routerLink]="['./page',curPage-1,'ma','ma']" (click)="changePage(curPage-1)"
+                                <li class="page-item"><a class="page-link"> <button class="btn btn-default next" [routerLink]="['./page',curPage-1]" (click)="changePage(curPage-1)"
           [queryParams]="{pageNo:curPage-1}" [disabled]="curPage==1">上一页</button></a></li>
 
                                 <li class="page-item" *ngFor="let page of getPageList(pageSize,totalNum,curPage,totalPage)"><a class="page-link">
-  <button class="btn btn-default" [routerLink]="['./page',page.pageNo,sortKey,sortOrder]" [disabled]="curPage==page.pageNo"
+  <button class="btn btn-default" [routerLink]="['./page',page.pageNo]" [disabled]="curPage==page.pageNo"
           (click)="changePage(page.pageNo)" [queryParams]="page">
     {{page.pageNo}}
   </button></a></li>
-                                <li class="page-item"><a class="page-link"><button class="btn btn-default next" [routerLink]="['./page',curPage-(-1),'sortKey','sortOrder']" [disabled]="totalPage-curPage==0" (click)="changePage(curPage-(-1))"
+                                <li class="page-item"><a class="page-link"><button class="btn btn-default next" [routerLink]="['./page',curPage-(-1)]" [disabled]="totalPage-curPage==0" (click)="changePage(curPage-(-1))"
           [queryParams]="{pageNo:curPage-(-1)}">下一页</button></a></li>
 
                               <li class="page-item"><a class="page-link">

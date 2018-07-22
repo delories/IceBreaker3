@@ -1,4 +1,4 @@
-import { Component, OnInit ,Output,Input} from '@angular/core';
+import { Component, OnInit ,Input,OnChanges,SimpleChanges, SimpleChange} from '@angular/core';
 import { Location } from '@angular/common';
 import {ActivatedRoute,Router} from '@angular/router';
 import { Http,Headers} from '@angular/http';
@@ -12,28 +12,20 @@ import * as _ from 'lodash';
   templateUrl: './infos-show.component.html',
   styleUrls: ['./infos-show.component.css']
 })
-export class InfosShowComponent implements OnInit {
-  sortKey:string;
-  sortOrder:string;
-  curPage:number;
+export class InfosShowComponent implements OnChanges{
+  @Input('curPage') curPage:number;
   dataSource: Observable<any>;
   infos: Array<any> = [];
-  public key:string;
- 	public searchType:string;  
+  @Input('key') key:string;
+  @Input('searchType') searchType:string;
+  @Input('pageSize') pageSize: number;
+  @Input('sortKey') sortKey:string;
+  @Input('sortOrder') sortOrder:string;
 
   constructor(private http:Http,private routeInfo: ActivatedRoute) {
-
-  let key=this.routeInfo.params["key"];
-let searchType=this.routeInfo.params["type"]; 
-   let curPage=this.routeInfo.snapshot.params["curPage"];
-	this.dataSource=this.http.get('http://139.196.101.226:3444/search/'+searchType+'/'+key+'/8/2').pipe(map((res)=>res.json())); 
 }
-
-  ngOnInit() { 
-   this.curPage=this.routeInfo.snapshot.params["curPage"];
-   this.sortKey=this.routeInfo.snapshot.params["sortKey"];
-   this.sortOrder=this.routeInfo.snapshot.params["sortOrder"];
-
+  ngOnChanges(changes: SimpleChanges) {
+  this.dataSource=this.http.get('http://139.196.101.226:3444/search/'+this.searchType+'/'+this.key+'/8/'+this.curPage).pipe(map((res)=>res.json()));
    this.dataSource.subscribe((data) => this.infos = data);
   }
 mainProductLimit(str: string, lenn: number) {

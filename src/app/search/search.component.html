@@ -1,5 +1,12 @@
   <nav class="center-block container" style="position:fixed;z-index:99;background:#Ffffff">
     <div class="row"><br>
+        <div class="col-12 col-sm-1 col-md-1 col-lg-1">
+            <a [routerLink]="['./home']"><img alt="loading " [src]=''></a>
+        </div>
+        <div class="col-12 col-sm-1 col-md-1 col-lg-1">
+           
+        </div>
+       
                         <form role="form" class="col-12 col-sm-6 col-md-6 col-lg-6 ui-widget">
                             <ol class="breadcrumb" style="margin:0px;padding:3px 0px 0px 0px;background-color:rgba(0,0,0,0);font-size:110%">
                              <li><a (click)="setName()">查公司</a></li>
@@ -27,7 +34,15 @@
                             <li *ngFor="let i of chooseAutoKey(autoInfos)"><a (click)="setKey(i.Region)">{{i.Region}}</a></li></ul>
                             </div>
                             
-                        </form>                
+                        </form> 
+                        <div class="col-12 col-sm-2 col-md-2 col-lg-2"></div>
+
+                         <div class="col-12 col-sm-1 col-md-1 col-lg-1">
+                            
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn" (click)="goBack()" style="margin:0px;display:block">
+          <span class="glyphicon glyphicon-circle-arrow-left" style="margin:0px"></span>Back
+        </a>
+        </div>               
     </div>
                         
                     </nav>

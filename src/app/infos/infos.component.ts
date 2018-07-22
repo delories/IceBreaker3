@@ -24,7 +24,7 @@ export class InfosComponent implements OnInit {
   public curPage =1;// 当前页码
 
 states = [
-    {sortKey: '',sortOrder:'', abbrev: '默认排序'},
+    {sortKey: 'default',sortOrder:'default', abbrev: '默认排序'},
     {sortKey: 'RegisterMoney',sortOrder:'desc',abbrev: '按注册资本降序'},
     {sortKey: 'RegisterMoney',sortOrder:'asc', abbrev: '按注册资本升序'},
     {sortKey: 'RegisterDate',sortOrder:'desc' ,abbrev: '按注册时间降序'},
