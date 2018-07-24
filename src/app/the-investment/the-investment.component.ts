@@ -23,15 +23,15 @@ import * as _ from 'lodash';
   styleUrls: ['./the-investment.component.css']
 })
 export class TheInvestmentComponent implements OnInit {
-  dataSource: Observable<any>;
-  investments: Array<any> = [];
+  // dataSource: Observable<any>;
+  // investments: Array<any> = [];
 public dataSource: Observable<any>;
  public investments;
 
   //constructor(private routeInfo: ActivatedRoute, private http: Http) {
   constructor(private router: Router,private routeInfo: ActivatedRoute, private http: Http) {    let id = this.routeInfo.snapshot.params["id"];
     let id_ = id.substring(25);
-    this.dataSource = this.http.get('http://139.196.101.226:3444/relations/0/' + id_).pipe(map((res) => res.json())); 
+    this.dataSource = this.http.get('http://139.196.101.226:3444/relations/0/' + id_).pipe(map((res) => res.json()));
   }
   ngOnInit() {
     this.dataSource.subscribe((data) => this.investments = data);
