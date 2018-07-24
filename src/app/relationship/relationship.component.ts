@@ -22,7 +22,7 @@ export class RelationshipComponent implements OnInit {
   }
 
   getProfile(mode: string) {
-    var baseUrl = 'http://115.159.39.220:3444/relations/01/map/';
+    var baseUrl = 'http://139.196.101.226:3444/relations/01/map/';
     var url = baseUrl + this.id.substr(25);
     this.httpClient.get(url)
       .subscribe(

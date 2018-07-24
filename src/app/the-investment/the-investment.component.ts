@@ -1,8 +1,20 @@
-import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {Http, Headers} from '@angular/http';
+import {Component} from '@angular/core';
+import {Input} from '@angular/core';
+import {Output} from '@angular/core';
+import {EventEmitter} from '@angular/core';
+
+import {OnInit} from '@angular/core';
+
+import {ActivatedRoute} from '@angular/router';
+import {Router} from '@angular/router';
+
+import {Http} from '@angular/http';
+import { Headers} from '@angular/http';
+import {Observable} from 'rxjs';
+import {of} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {Observable, of} from 'rxjs';
+
+
 import * as _ from 'lodash';
 
 @Component({
@@ -13,13 +25,13 @@ import * as _ from 'lodash';
 export class TheInvestmentComponent implements OnInit {
   dataSource: Observable<any>;
   investments: Array<any> = [];
+public dataSource: Observable<any>;
+ public investments;
 
-  constructor(private routeInfo: ActivatedRoute, private http: Http, private router: Router) {
-    let id = this.routeInfo.snapshot.params["id"];
+  //constructor(private routeInfo: ActivatedRoute, private http: Http) {
+  constructor(private router: Router,private routeInfo: ActivatedRoute, private http: Http) {    let id = this.routeInfo.snapshot.params["id"];
     let id_ = id.substring(25);
-    this.dataSource = this.http.get('http://115.159.39.220:3444/relations/0/' + id_).pipe(map((res) => res.json()));
-    console.error("this.dataSource");
-    console.log("http://115.159.39.220:3444/relations/0/" + id_);
+    this.dataSource = this.http.get('http://139.196.101.226:3444/relations/0/' + id_).pipe(map((res) => res.json())); 
   }
   ngOnInit() {
     this.dataSource.subscribe((data) => this.investments = data);

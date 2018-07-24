@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {Location} from '@angular/common';
 import {ActivatedRoute } from '@angular/router';
 import { Http, Headers} from '@angular/http';
 import { map } from 'rxjs/operators';
 import { Observable, of} from 'rxjs';
-
-
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
@@ -24,15 +23,14 @@ export class DetailsComponent implements OnInit {
 
   constructor(private routeInfo: ActivatedRoute, private http: Http) {
 
-    console.log(window.location.pathname);    this.ownershipURL = window.location.pathname + '#ownership';
+    console.log(window.location.pathname);
+    this.ownershipURL = window.location.pathname + '#ownership';
     this.investmentURL = window.location.pathname + '#investment';
     this.enterpriseURL = window.location.pathname + '#enterprise';
     this.relationshipURL = window.location.pathname + '#relationship';
-
-
     const id = this.id = this.routeInfo.snapshot.params['id'];
     const id_ = id.substring(25);
-    this.dataSource = this.http.get('http://115.159.39.220:3444/company/' + id_).pipe(map((res) => res.json()));
+    this.dataSource = this.http.get('http://139.196.101.226:3444/company/' + id_).pipe(map((res) => res.json()));
     }
 
 
@@ -41,7 +39,4 @@ export class DetailsComponent implements OnInit {
     this.dataSource.subscribe((data) => this.company = data);
     this.dataSource.subscribe((data) => this.detail = data);
   }
-
-
-
 }

@@ -4,6 +4,7 @@ import * as _ from 'lodash';
 import { Http,Headers} from '@angular/http';
 import { map } from 'rxjs/operators';
 import { Observable,of} from 'rxjs';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-search',
@@ -16,14 +17,14 @@ export class SearchComponent implements OnInit {
   dataSource:Observable<any>;
   autoInfos:Array<any>=[];
 
-  constructor(private router: Router,private http:Http,private routeInfo: ActivatedRoute) { }
+  constructor(private router: Router,private http:Http,private routeInfo: ActivatedRoute,private location: Location) { }
 
   ngOnInit() {
     $("#spId").text("查公司");
     this.key=this.routeInfo.snapshot.params["key"];
   }
    showAutoComplete(){
-    this.dataSource=this.http.get('http://115.159.39.220:3444/search/'+this.type+'/'+this.key+'/autoprefix').pipe(map((res)=>res.json()));
+    this.dataSource=this.http.get('http://139.196.101.226:3444/'+this.type+'/'+this.key+'/autoprefix').pipe(map((res)=>res.json()));
 
     this.dataSource.subscribe((data)=>this.autoInfos=data);
     $("#autoInfo").show();
@@ -83,5 +84,10 @@ export class SearchComponent implements OnInit {
   setRegion(){
   this.type="Region";
   $("#spId").text("查地区");
+  }
+  goBack() {
+  
+   window.history.back();
+                    
   }
 }

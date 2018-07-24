@@ -30,7 +30,7 @@ export class InvestmentComponent implements OnInit {
 
 
     let option = {};
-    const baseUrl = 'http://115.159.39.220:3444/relations/';
+    const baseUrl = 'http://139.196.101.226:3444/relations/';
 
     $.ajaxSetup({
       async: false

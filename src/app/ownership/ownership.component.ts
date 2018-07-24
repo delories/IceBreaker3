@@ -20,7 +20,7 @@ export class OwnershipComponent implements OnInit {
     let option = {};
     const Data = [];      //存储待处理数据信息
     const dot = [];       //用于去重操作
-    const baseUrl = 'http://115.159.39.220:3444/relations/0/';
+    const baseUrl = 'http://139.196.101.226:3444/relations/0/';
     let bigShareholder;
 
     $.ajaxSetup({
@@ -76,10 +76,7 @@ export class OwnershipComponent implements OnInit {
         console.log(Data[i].name);
         legend_data.push(Data[i].name);
       }
-      console.log(legend_data);
-      console.error('look here');
-      console.warn('Data');
-      console.warn(Data);
+     
       // 指定图表的配置项和数据
       thisName=thisName+"\n\n\n实际控股人: "+bigShareholder;
       option = {

@@ -29,8 +29,7 @@
 
 
         </div>
-
-                <app-pages [key]='[this.key]' [searchType]='[this.searchType]' [pageSize]="8" [totalNum]='[infosNum.length]' [curPage]='[curPage]' [totalPage]='[countPages(infosNum.length,pageSize)]'  (changeCurPage)="getPageData($event)" [sortKey]='[returnSortKey(form.value)]' [sortOrder]='[returnSortOrder(form.value)]'></app-pages>
+      <app-pages [key]='[this.key]' [searchType]='[this.searchType]' [pageSize]="8" [totalNum]='[infosNum.length]' [curPage]='[curPage]' [totalPage]='[countPages(infosNum.length,pageSize)]'  (changeCurPage)="getPageData($event)" [sortKey]='[returnSortKey(form.value)]' [sortOrder]='[returnSortOrder(form.value)]'></app-pages>
         <div *ngIf="this.infosNum.length==null||this.infosNum.length==0">
 
 
